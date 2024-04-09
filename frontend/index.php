@@ -25,8 +25,8 @@
   <!-- Navbar -->
   <?php include("header.php"); ?>
   <div class="home">
-    
+    <p></p>
   </div>
-  <?php include("footer.php"); ?>
+  <?php include("footer.php");?>
 </body>
 </html>
