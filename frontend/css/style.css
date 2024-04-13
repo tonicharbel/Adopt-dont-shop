@@ -7,4 +7,23 @@
 .home{
   height: 500px;
 }
+.custom-bg-color{
+  background-color: #00008B;
+  color:white;
+ 
+
+}
+.nav-link , .navbar-brand {
+  color: white !important;
+  font-family: 'Roboto', sans-serif;
+}
+.navbar-brand{
+  font-size:150% !important;
+}
+.nav.flex-column .nav-item .nav-link {
+  color: white !important;
+}
+.list-unstyled.d-flex li a i {
+  color: #f0f0f0; /* Light shade of white */
+}
 
