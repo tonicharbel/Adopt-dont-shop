@@ -39,7 +39,6 @@
 
 
 /* Rehome Pet */
-
 .pet-form-container {
   max-width: 500px;
   margin: 0 auto;
@@ -57,9 +56,9 @@
 }
 
 .pet-form-container .form-control {
-  background-color: #113366; /* Darker blue input background */
-  color: #fff; /* Input text color */
-  border-color: #336699; /* Blue border color */
+  background-color: #113366 !important; /* Darker blue input background */
+  color: #fff !important; /* Input text color */
+  border-color: #336699 !important; /* Blue border color */
 }
 
 .pet-form-container .form-control::placeholder {
@@ -76,7 +75,7 @@
 }
 
 .pet-form-container .form-check-input:focus {
-  background-color: #003366; /* Dark blue background for focused checkbox/radio button */
+  background-color: #003366 !important; /* Dark blue background for focused checkbox/radio button */
 }
 
 /* Adjusted button styles f*/
@@ -108,7 +107,6 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
   background-color: #00008B; /* Set background color within shadow */
 }
-
 
 /* Pet List */
 
