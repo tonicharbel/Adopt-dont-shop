@@ -26,4 +26,117 @@
 .list-unstyled.d-flex li a i {
   color: #f0f0f0; /* Light shade of white */
 }
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-image: var(--bs-navbar-toggler-icon-bg);
+   background-repeat: no-repeat; 
+  background-position: center;
+  background-size: 100%;
+}
 
+
+/* Rehome Pet */
+
+.pet-form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* White shadow */
+}
+
+.pet-form-container h2 {
+  color: #fff; /* Heading text color */
+}
+
+.pet-form-container .form-group label {
+  font-weight: bold;
+}
+
+.pet-form-container .form-control {
+  background-color: #113366; /* Darker blue input background */
+  color: #fff; /* Input text color */
+  border-color: #336699; /* Blue border color */
+}
+
+.pet-form-container .form-control::placeholder {
+  color: #ccc; /* Placeholder text color */
+}
+
+.pet-form-container .form-check-input {
+  background-color: #113366; /* Darker blue input background */
+  border-color: #336699; /* Blue border color */
+}
+
+.pet-form-container .form-check-input:checked {
+  background-color: #336699; /* Blue background for checked checkbox/radio button */
+}
+
+.pet-form-container .form-check-input:focus {
+  background-color: #003366; /* Dark blue background for focused checkbox/radio button */
+}
+
+/* Adjusted button styles f*/
+.pet-form-container .btn-custom {
+  background-color: #336699; /* Blue button color */
+  border-color: #336699; /* Blue border color */
+  color:white;
+}
+
+.pet-form-container .btn-custom:hover {
+  background-color: #003366; /* Dark blue hover color */
+  border-color: #003366; /* Dark blue hover border color */
+}
+
+.pet-form-container .btn-custom:focus {
+  background-color: #003366; /* Dark blue focus color */
+  border-color: #003366; /* Dark blue focus border color */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Blue focus shadow */
+}
+
+.custom-body-bg {
+  background-color: white; /* Set background color of body to white */
+}
+
+.pet-form-container {
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  background-color: #00008B; /* Set background color within shadow */
+}
+
+
+/* Pet List */
+
+.pet-card {
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adding shadow */
+}
+
+.pet-card img {
+  width: 100%; /* Ensure image width is 100% of its container */
+  height: 200px; /* Fixed height for all images */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+.btn-center {
+  display: flex;
+  justify-content: center;
+}
+.custom-btn {
+background-color: #1a237e; /* dark blue */
+color: #ffffff; /* white text */
+border: none;
+border-radius: 5px;
+padding: 10px 20px;
+cursor: pointer;
+}
+.custom-btn:hover {
+background-color: #0d47a1; /* darker blue on hover */
+}
+.bg-custom-list{
+background-color:#00008B;
+}
