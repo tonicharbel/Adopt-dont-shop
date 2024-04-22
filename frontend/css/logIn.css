@@ -22,10 +22,6 @@ body.my-login-page {
 	z-index: 1;
 }
 
-.bg-color{
-  width: 100%;
-  background-color: rgba(0,0,0,0.5);
-}
 
 .checkbox{
   height: 17px;
