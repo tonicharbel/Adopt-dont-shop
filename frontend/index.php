@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Adopt don't shop</title>
   <!-- Google font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<!-- Link to Roboto font -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Link to Roboto font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <!-- Css styles -->
   <link rel="stylesheet" href="./css/style.css">
 

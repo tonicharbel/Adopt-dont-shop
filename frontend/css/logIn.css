@@ -1,0 +1,117 @@
+html,body {
+	height: 100%;
+}
+
+body.my-login-page {
+	font-size: 14px;
+  background-image: url("../images/login.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 0% 30%;
+  background-size: cover;
+}
+
+.my-login-page .brand {
+	width: 90px;
+	height: 90px;
+	overflow: hidden;
+	border-radius: 50%;
+	margin: 40px auto;
+	box-shadow: 0 4px 8px rgba(0,0,0,.05);
+	position: relative;
+	z-index: 1;
+}
+
+
+.checkbox{
+  height: 17px;
+  width: 17px;
+  min-height: auto;
+  margin: 2px 8px 0 0;
+  border: 2px solid #d9d9d9;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  transition: all 0.3s ease 0s;
+}
+
+.checkbox::before{
+  content: '';
+  height: 5px;
+  width: 9px;
+  border-bottom: 2px solid #0d6efd;
+  border-left: 2px solid #0d6efd;
+  transform: rotate(-45deg);
+  position: absolute;
+  left: 2px;
+  top: 2.5px;
+  transition: all 0.3s ease;
+}
+
+.checkbox:checked:before{ opacity: 1; }
+
+.checkbox:not(:checked):before{ opacity: 0; }
+
+.checkbox:focus{ outline: none; }
+
+.my-login-page .card-wrapper {
+	width: 400px;
+  padding-top: 12%;
+}
+
+
+.my-login-page .card {
+	border-color: transparent;
+	box-shadow: 0 4px 8px rgba(0,0,0,.05);
+  background-color: rgba(0, 0, 139, 0.5);
+  border-radius: 20px;
+}
+
+.my-login-page .card.fat {
+	padding: 10px;
+}
+
+.my-login-page .card .card-title {
+	margin-bottom: 30px;
+  color: white;
+}
+
+.my-login-page .form-control {
+	border-width: 2.3px;
+}
+
+.my-login-page .form-group label {
+	width: 100%;
+  color: white;
+}
+
+.my-login-page .btn.btn-block {
+	padding: 12px 10px;
+}
+
+.my-login-page .footer {
+	margin: 40px 0;
+	color: #888;
+	text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+	.my-login-page .card-wrapper {
+		width: 90%;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.my-login-page .card.fat {
+		padding: 0;
+	}
+
+	.my-login-page .card.fat .card-body {
+		padding: 15px;
+	}
+}
