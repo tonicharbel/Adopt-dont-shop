@@ -1,0 +1,55 @@
+/*  styles for index */
+       
+.banner {
+    height: 50vh;
+    background-image: linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.80)), url('../images/home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+.section2 {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+.achievement-item {
+    text-align: center;
+    padding: 20px;
+}
+.white {
+    height: 50px; /* Adjust height as needed */
+    background-color: #fff;
+}
+.benefits-section {
+    padding: 70px 0;
+    background-color: #e9ecef;
+    text-align: center;
+    margin-top:10%;
+
+}
+
+.container h2{
+  margin-bottom:5%;
+  text-align:center;
+  margin-top:50px;
+}
+.adoption-option {
+margin-bottom: 40px;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center; /* Center text */
+}
+
+.adoption-option i {
+margin-bottom: 20px; /* Adjust as needed */
+display: block; /* Ensure the icon is displayed as a block element */
+margin-left: auto; /* Center the icon horizontally */
+margin-right: auto; 
+}
+/* End Index style *
