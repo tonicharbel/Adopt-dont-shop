@@ -26,7 +26,22 @@
         <li class="nav-item">
           <a class="nav-link " aria-disabled="false">About Us</a>
         </li>
-        
+        <!-- Login/SignUp icon -->
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">
+            <i class="bi bi-person bi-lg"></i>
+          </a>
+        </li>
+        <!-- Slash bar -->
+        <li class="nav-item">
+          <span class="nav-link">/</span>
+        </li>
+        <!-- Bucket List icon -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-bucket bi-lg"></i>
+          </a>
+        </li>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

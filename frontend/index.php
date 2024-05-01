@@ -47,7 +47,7 @@
                     <i class="fa fa-paw fa-4x"></i>
                     <h3>Adopt a Pet</h3>
                     <p>Find your new furry friend and give them a loving home.</p>
-                    <a href="#" class="btn btn-primary">Adopt Now</a>
+                    <a href="forgot.html" class="btn btn-primary">Adopt Now</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -55,7 +55,7 @@
                     <i class="fa fa-home fa-4x"></i>
                     <h3>Rehome Your Pet</h3>
                     <p>If circumstances change, we can help find a new home for your pet.</p>
-                    <a href="#" class="btn btn-primary">Rehome Now</a>
+                    <a href="rehomepet.php" class="btn btn-primary">Rehome Now</a>
                 </div>
             </div>
         </div>
@@ -169,5 +169,6 @@
 
     
   <?php include("footer.php");?>
+
 </body>
 </html>
