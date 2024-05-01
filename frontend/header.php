@@ -24,7 +24,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-disabled="false">About Us</a>
+          <a class="nav-link " href="about.html" aria-disabled="true">About Us</a>
         </li>
         <!-- Login/SignUp icon -->
         <li class="nav-item">
