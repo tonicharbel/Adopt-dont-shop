@@ -1,20 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
-  body,
-  input,
-  textarea {
+  body{
     font-family: "Poppins", sans-serif;
+  }
+  
+  .custom-bg-color{
+    background-color: #00008B;
+    color:white;
+    margin-bottom: 50px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+  }
+
+.nav-link , .navbar-brand {
+    color: white !important;
+    font-family: 'Roboto', sans-serif;
+  }
+  .navbar-brand{
+    font-size:150% !important;
+  }
+  .nav.flex-column .nav-item .nav-link {
+    color: white !important;
+  }
+  .list-unstyled.d-flex li a i {
+    color: #f0f0f0; /* Light shade of white */
+  }
+  .navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: var(--bs-navbar-toggler-icon-bg);
+     background-repeat: no-repeat; 
+    background-position: center;
+    background-size: 100%;
   }
   
   .container {
     position: relative;
     width: 100%;
     min-height: 100vh;
-    padding: 2rem;
+    padding: 10rem;
     background-color: #fafafa;
     overflow: hidden;
     display: flex;
@@ -132,17 +164,17 @@
   }
   
   .btn {
-    padding: 0.6rem 1.3rem;
+    padding: 0.6rem 1rem;
     background-color: #fff;
     border: 2px solid #fafafa;
     font-size: 0.95rem;
-    color: #00008b;
+    color: #5e5ea1;
     line-height: 1;
     border-radius: 25px;
     outline: none;
     cursor: pointer;
     transition: 0.3s;
-    margin: 0;
+    margin-bottom: 10px;
   }
   
   .btn:hover {
