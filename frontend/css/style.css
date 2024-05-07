@@ -40,6 +40,7 @@
 
 /* Rehome Pet */
 
+
 .pet-form-container {
   max-width: 500px;
   margin: 0 auto;
@@ -57,48 +58,38 @@
 }
 
 .pet-form-container .form-control {
-  background-color: #113366 !important; /* Darker blue input background */
-  color: #fff !important; /* Input text color */
-  border-color: #336699 !important; /* Blue border color */
+  background-color: #fff !important; /* Darker white input background */
+  color: black !important;/* Input text color */
+  border-radius: 10px; 
+  margin-bottom: 1%; 
 }
 
 .pet-form-container .form-control::placeholder {
-  color: #ccc; /* Placeholder text color */
+  color: #333; /* Placeholder text color */
 }
 
 .pet-form-container .form-check-input {
-  background-color: #113366; /* Darker blue input background */
-  border-color: #336699; /* Blue border color */
+  background-color: transparent; /* transparent input background */
+  border: 2px solid #d9d9d9; /* grey border color */
 }
 
 .pet-form-container .form-check-input:checked {
-  background-color: #336699; /* Blue background for checked checkbox/radio button */
+  background-color: transparent; /* transparent background for checked checkbox/radio button */
 }
 
 .pet-form-container .form-check-input:focus {
-  background-color: #003366 !important; /* Dark blue background for focused checkbox/radio button */
+  background-color: transparent !important; /* Dark transparent background for focused checkbox/radio button */
 }
 
 /* Adjusted button styles f*/
-.pet-form-container .btn-custom {
-  background-color: #336699; /* Blue button color */
-  border-color: #336699; /* Blue border color */
-  color:white;
-}
 
-.pet-form-container .btn-custom:hover {
-  background-color: #003366; /* Dark blue hover color */
-  border-color: #003366; /* Dark blue hover border color */
-}
-
-.pet-form-container .btn-custom:focus {
-  background-color: #003366; /* Dark blue focus color */
-  border-color: #003366; /* Dark blue focus border color */
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Blue focus shadow */
-}
 
 .custom-body-bg {
-  background-color: white; /* Set background color of body to white */
+  background-image: url("../images/rehome.jpg") !important;
+  background-repeat: no-repeat ;
+  background-attachment: scroll;
+  background-position: 0% 30%;
+  background-size: cover;
 }
 
 .pet-form-container {
@@ -106,7 +97,13 @@
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
-  background-color: #00008B; /* Set background color within shadow */
+  background-color: rgba(0, 0, 139, 0.5); /* Set background color within shadow */
+}
+
+.wallpaper{
+  width: 100%;
+  padding: 3%;
+  background-color: rgba(0,0,0,0.5);
 }
 
 /* Pet List */
@@ -121,10 +118,12 @@
   height: 200px; /* Fixed height for all images */
   object-fit: cover; /* Maintain aspect ratio and cover the container */
 }
+
 .btn-center {
   display: flex;
   justify-content: center;
 }
+
 .custom-btn {
 background-color: #1a237e; /* dark blue */
 color: #ffffff; /* white text */
@@ -133,6 +132,7 @@ border-radius: 5px;
 padding: 10px 20px;
 cursor: pointer;
 }
+
 .custom-btn:hover {
 background-color: #0d47a1; /* darker blue on hover */
 }
@@ -140,4 +140,3 @@ background-color: #0d47a1; /* darker blue on hover */
 background-color:#00008B;
 }
 
-  

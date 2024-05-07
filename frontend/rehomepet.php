@@ -28,10 +28,11 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body class="custom-body-bg text-white" >
+<body class="custom-body-bg text-white">
 <?php include("header.php");?>
+<div class="wallpaper">
 <div class="container">
-    <div class="form-container mt-5 pet-form-container" style="max-width: 800px;">
+    <div class="form-container mt-5 pet-form-container" style="max-width: 800px; margin-bottom: 5%;">
         <h2 class="text-center mb-4">Pet Submission Form</h2>
         <form>
             <div class="row">
@@ -101,7 +102,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="petDescription">Description</label>
-                        <textarea class="form-control" id="petDescription" rows="3" placeholder="Enter pet description"></textarea>
+                        <textarea class="form-control" id="petDescription" rows="3" placeholder="Enter pet description" style="resize: none;"></textarea>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -112,13 +113,18 @@
                 </div>
             </div>
             
-            <button type="submit" class="btn btn-custom btn-block">Submit</button>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
         </form>
     </div>
 </div>
+</div>
+    <!-- Footer -->
+    <?php include("footer.php");?>
 
 
     <!-- Bootstrap JS (optional) -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+

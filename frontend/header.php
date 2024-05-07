@@ -27,10 +27,7 @@
           <a class="nav-link " href="about.php" aria-disabled="true">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-disabled="false" href="contact.php">Contact Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="contact.html" aria-disabled="true">Contact Us</a>
+          <a class="nav-link " href="contact.php" aria-disabled="true">Contact Us</a>
         </li>
         <!-- Login/SignUp icon -->
         <li class="nav-item">

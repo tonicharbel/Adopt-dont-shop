@@ -33,11 +33,12 @@
 
   </head>
   </head>
-  <body>
+  <body style="background-color: #fafafa;">
     
-    <!-- Navbar -->
+    <!-- Navbar--> 
     <?php include("header.php"); ?>
-
+    
+    <div class="space" style="margin-top: 10%;"></div>
     <div class="container_">
       <span class="big-circle"></span>
       <div class="form">
@@ -101,6 +102,7 @@
         </div>
       </div>
     </div>
+    <div class="space" style="margin-top: 10%;"></div>
 
 
     <!-- Footer -->
