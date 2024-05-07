@@ -110,6 +110,7 @@ section{
 
 .footer button:hover{
   background-color: #00008B;
+  
 }
 
 @media (min-width: 720px) {

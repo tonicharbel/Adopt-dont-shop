@@ -84,6 +84,5 @@ function showSlides() {
     setTimeout(showSlides, 4000); // Change image every 4 seconds
 }
     </script>
-    <script src="slider.js"></script>
 </body>
 </html>

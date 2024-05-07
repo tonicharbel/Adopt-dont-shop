@@ -71,9 +71,7 @@ body.my-login-page {
   border-radius: 20px;
 }
 
-.my-login-page .card.fat {
-	padding: 10px;
-}
+.my-login-page .card.fat { padding: 10px; }
 
 .my-login-page .card .card-title {
 	margin-bottom: 30px;
