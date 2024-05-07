@@ -12,10 +12,10 @@
   .custom-bg-color{
     background-color: #00008B;
     color:white;
-    margin-bottom: 50px;
+    /*margin-bottom: 50px;*/
     position: -webkit-sticky; /* Safari */
     position: sticky;
-    top: 0;
+    /*top: 0;*/
   }
 
 .nav-link , .navbar-brand {
@@ -42,7 +42,7 @@
     background-size: 100%;
   }
   
-  .container {
+  .container_ {
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -52,6 +52,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
   }
   
   .form {
@@ -102,12 +103,13 @@
     left: -13px;
   }
   
-  form {
+  .forms {
     padding: 2.3rem 2.2rem;
     z-index: 10;
     overflow: hidden;
     position: relative;
   }
+
   
   .title {
     color: #fff;
@@ -163,7 +165,7 @@
     transform: translateY(0);
   }
   
-  .btn {
+  .btn_ {
     padding: 0.6rem 1rem;
     background-color: #fff;
     border: 2px solid #fafafa;
@@ -177,7 +179,7 @@
     margin-bottom: 10px;
   }
   
-  .btn:hover {
+  .btn_:hover {
     background-color: #285feb;
     color: #fff;
   }
@@ -384,7 +386,7 @@
   }
   
   @media (max-width: 480px) {
-    .container {
+    .container_ {
       padding: 1.5rem;
     }
   
@@ -397,7 +399,7 @@
       display: none;
     }
   
-    form,
+    .forms,
     .contact-info {
       padding: 1.7rem 1.6rem;
     }
@@ -426,7 +428,7 @@
       padding: 0.45rem 1.2rem;
     }
   
-    .btn {
+    .btn_ {
       padding: 0.45rem 1.2rem;
     }
   }

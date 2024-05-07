@@ -116,10 +116,9 @@
                     </div>
                 </div>
             </div>
-        
+        </div>
     </div>
 </div>
-      </div>
       
         
            
@@ -167,8 +166,8 @@
 
 
 
-    
-  <?php include("footer.php");?>
+    <!-- Footer -->
+    <?php include("footer.php");?>
 
 </body>
 </html>
