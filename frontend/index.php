@@ -47,7 +47,7 @@
                     <i class="fa fa-paw fa-4x"></i>
                     <h3>Adopt a Pet</h3>
                     <p>Find your new furry friend and give them a loving home.</p>
-                    <a href="forgot.html" class="btn btn-primary">Adopt Now</a>
+                    <a href="petlist.php" class="btn btn-primary">Adopt Now</a>
                 </div>
             </div>
             <div class="col-md-6">

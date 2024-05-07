@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Individual Pet Page</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    /* Custom styles */
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      padding: 50px;
+    }
+    .pet-info {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+    
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="pet-info">
+            <a href="petlist.php"><ion-icon name="chevron-back-outline" style="font-size:12px;"></ion-icon><p style="display:inline;"> Back</p></a>
+          <h2 id="pet-name">Pet Name</h2>
+          <img id="pet-image" alt="Pet Image" class="img-fluid mb-3 ">
+          <p><strong>Breed:</strong> Labrador Retriever</p>
+       
+          <p><strong>Age:</strong> 2 years</p>
+          <p><strong>Gender:</strong> Female</p>
+          <p id="pet-description"><strong >Description:</strong></p>
+          <a href="#" class="btn btn-primary">Adopt Me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HTML for pet card -->
+
+ 
+       
+            <p id="pet-description"  class="card-text"></p>
+            
+       
+ 
+
+<!-- Container for displaying pet details -->
+<div id="pet-details-container">
+    <!-- Pet details will be displayed here -->
+</div>
+<!-- HTML for displaying individual pet details -->
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Retrieve URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const petName = urlParams.get('name');
+        const petDescription = urlParams.get('description');
+        const petImage = urlParams.get('image');
+
+        // Display pet details on the page
+        document.getElementById('pet-name').textContent = petName;
+        document.getElementById('pet-description').textContent = petDescription;
+        document.getElementById('pet-image').setAttribute('src', petImage);
+    });
+</script>
+
+  <!-- Bootstrap JS and dependencies (jQuery and Popper.js) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
