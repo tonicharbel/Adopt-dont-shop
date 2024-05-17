@@ -84,7 +84,7 @@
                 </div>
             </div>
                  <!-- Pet Listing Cards -->
-                 <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6">
                 <div class="card pet-card">
                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIMYekocmLaU6IJGIC9CtRXOr5DQSC57LlYA&s"class="card-img-top" alt="Pet 2">
                 <div class="card-body">
@@ -94,6 +94,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-lg-3 col-md-6">
                 <div class="card pet-card">
                  <img src="https://paradepets.com/.image/t_share/MTkxMzY1Nzg4Njc2NzI4NDE4/golden-retriever.jpg"class="card-img-top" alt="Pet 2">
@@ -104,7 +105,7 @@
                     </div>
                 </div>
             </div>
-
+            
 
             <div class="col-lg-3 col-md-6">
                 <div class="card pet-card">

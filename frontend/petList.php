@@ -80,6 +80,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="card pet-card">
                     <img src="images/cat0.jpg" class="card-img-top" alt="Pet 2">
@@ -90,9 +91,6 @@
                     </div>
                 </div>
             </div>
-            
-
-
             
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="card pet-card">
