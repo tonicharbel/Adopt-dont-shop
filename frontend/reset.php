@@ -30,8 +30,9 @@
             <div class="card fat">
               <div class="card-body">
                 <h4 class="card-title">Reset Password</h4>
-                <form method="POST" class="my-login-validation" novalidate="">
+                <form method="POST" class="my-login-validation" novalidate="" action="update_password.php">
                   <div class="form-group">
+                    <input type="hidden" name="token" value="<?php echo $token; ?>">
                     <label for="new-password" style="font-weight: bold; margin-bottom: 1%;">New Password</label>
                     <input id="new-password" type="password" class="form-control" name="password" required autofocus data-eye style="border-radius: 10px; color: #333;" placeholder="Your New Password">
                     <div class="invalid-feedback">

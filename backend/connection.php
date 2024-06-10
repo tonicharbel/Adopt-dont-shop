@@ -1,14 +1,17 @@
 <?php
-$dsn = "mysql:host=localhost;dbname=";
-$dbusername="root";
-$dbpassword="";
+
+$servername = "localhost"; 
+$username = "root"; 
+$password = ""; 
+$database = "adoptdontbuy"; 
 
 try{
-  $pdo = new PDO($dsn, $dbusername, $dbpassword);
-  echo "connected to database";
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}catch(PDOException $e){
-  echo "connection failed ".$e->getMessage();
+  $con = new mysqli($servername, $username, $password, $database);
+  
+} catch (mysqli_sql_exception){
+
+  header("Location:../frontend/error.php");
+  exit(); 
 }
 
 ?>

@@ -29,28 +29,39 @@
         <li class="nav-item">
           <a class="nav-link " href="contact.php" aria-disabled="true">Contact Us</a>
         </li>
-        <!-- Login/SignUp icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="login.html">
-            <i class="bi bi-person bi-lg"></i>
-          </a>
-        </li>
-        <!-- Slash bar -->
-        <li class="nav-item">
-          <span class="nav-link">/</span>
-        </li>
-        <!-- Bucket List icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="bi bi-bucket bi-lg"></i>
-          </a>
-        </li>
+        
       </ul>
       
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-primary" type="submit">Search</button>
-      </form>
+      <!-- Login/SignUp icon -->
+      <div class="d-flex">
+      <?php
+            if(!isset($_SESSION['user_id'])){
+              echo '<a class="nav-link" href="login.php">';
+              echo'<button type="button" class="btn btn-primary" style="margin-right:15px;">Log In</button>';
+              echo'</a>';
+            }else{
+
+              ?>
+              <div class="btn-group">
+              <i class="bi bi-person-circle " style="color:white; font-size:30px; margin-right:15px;" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              
+              <ul class="dropdown-menu dropdown-menu-end" style="max-height: 400px; overflow-y: auto; overflow-x: auto; width: 300px;">
+              <li><div class="dropdown-item" ><i class="bi bi-person-circle " style="font-size:50px; margin-right:15px; margin-left:40%;"></i></div></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" aria-readonly></a></li>
+              <li><div class="dropdown-item" style="text-align: center;"><?php echo $_SESSION['user_name']; ?></div></li>
+              <li><div class="dropdown-item" style="text-align: center;"><?php echo $_SESSION['user_email']; ?></div></li>
+              <li><a class="dropdown-item" href="#" aria-readonly></a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="logout.php" style="color: #EA0101; text-align: center;"><i class="bi bi-box-arrow-right" style="margin-right:5px;"></i>Log out</a></li>
+              </ul>
+              </div>
+
+              <?php
+              
+            } 
+            ?>
+      </div>
       
     </div>
   </div>
