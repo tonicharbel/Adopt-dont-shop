@@ -12,8 +12,8 @@ if (isset($_POST["send"])){
         $mail->isSMTP(); 
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;   
-        $mail->Username   = 'tonicharbel64@gmail.com';
-        $mail->Password   = 'dtmk wpmh hlam ztpn'; // Use your App Password here not your password
+        $mail->Username   = '';
+        $mail->Password   = ''; // Use your App Password here not your password
         $mail->SMTPSecure =  PHPMailer::ENCRYPTION_STARTTLS;; // Use TLS encryption
         $mail->Port       = 587; // Port for TLS encryption
 
