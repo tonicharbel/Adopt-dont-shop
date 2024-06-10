@@ -13,7 +13,7 @@ body {
   margin: 0;
   padding: 0;
   width: 250px;
-  background-color: #343a40; /* Changed background color to dark blue */
+  background-color: #00007B; 
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -21,17 +21,17 @@ body {
 
 .sidebar a {
   display: block;
-  color: white; 
+  color: white;
   padding: 16px;
   text-decoration: none;
 }
  
 .sidebar a.active {
-  background-color: darkblue;
+  background-color: #00005B; 
 }
 
 .sidebar a:hover:not(.active) {
-  background-color: #555;
+  background-color: #00006B;
 }
 
 div.content {
@@ -69,7 +69,7 @@ div.content {
         }
         .profile-container h4 {
             color: white;
-            margin-left: 10px; 
+            margin-left: 10px; /* Adjust spacing between image and text */
         }
         .horizontal-line {
             border-top: 2px solid white;
@@ -80,7 +80,7 @@ div.content {
 <body>
 
 <?php
-
+// Get the current file name
 $current_file = basename($_SERVER['PHP_SELF']);
 ?>
 
@@ -103,7 +103,7 @@ $current_file = basename($_SERVER['PHP_SELF']);
 </div>
 
 <div class="content">
-  <!-- Content  are here :)  -->
+  <!-- Content goes here -->
   <div style="height:3%;"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
