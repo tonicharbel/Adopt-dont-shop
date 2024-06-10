@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <!-- Css styles -->
   <link rel="stylesheet" href="./css/style.css">
+  
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,15 +33,36 @@
 
 <div class="container mt-4">
     <form class="row" id="searchForm">
-        <div class="col-md-4 mb-2">
+        <!-- <div class="col-md-2 mb-2">
             <input type="text" class="form-control" id="searchInput" placeholder="Search by name...">
-        </div>
-        <div class="col-md-3 mb-3">
-            <select class="form-control" id="categorySelect">
-                <option value="">All</option>
+              </div>
+        -->
+       
+        <div class="col-md-2 mb-3">
+            <select class="form-control" id="categorySelect" name="Pet Type">
+                <option value="" disabled selected>Pet Type</option>
                 <option value="cat">Cat</option>
                 <option value="dog">Dog</option>
             </select>
+            
+        </div>
+        <div class="col-md-2 mb-3">
+            <select class="form-control" id="categorySelect">
+                <option value="" disabled selected>Breed</option>
+                <option value="">Labrador Retriever</option>
+                <option value="dog">Golden Retriever</option>
+                <option value="dog">Rottweiler</option>
+                <option value="dog">Husky</option>
+                <option value="">Bichon </option>
+            </select>
+        </div>
+        <div class="col-md-2 mb-3">
+            <select class="form-control" id="categorySelect">
+                <option value="" disabled selected>Gender</option>
+                <option value="cat">Male</option>
+                <option value="dog">Female</option>
+            </select>
+            
         </div>
         <div class="col-md-2 mb-3">
             <input type="number" class="form-control" id="minAgeInput" placeholder="Min Age">
@@ -87,6 +110,7 @@
                         <h5 class="card-title">Pet Name 2</h5>
                         <p class="card-text">Description of the pet. Age, breed, etc.</p>
                         <a href="#" class="btn btn-primary btn-center adopt-btn">Adopt Me</a>
+                        
                     </div>
                 </div>
             </div>
@@ -108,7 +132,9 @@
                 <div class="card pet-card">
                  <img src="images/dog2jpg.jpg"class="card-img-top" alt="Pet 2">
                 <div class="card-body">
-                        <h5 class="card-title">Pet Name 4</h5>
+                        <h5 class="card-title">Pet Name 4
+
+</h5>
                         <p class="card-text">Description of the pet. Age, breed, etc.</p>
                         <a href="#" class="btn btn-primary btn-center adopt-btn">Adopt Me</a>
                     </div>
@@ -187,32 +213,51 @@
     
 
   </div>
-  <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add event listener to "Adopt Me" buttons
-            var adoptButtons = document.querySelectorAll('.adopt-btn');
-            adoptButtons.forEach(function(button) {
-                button.addEventListener('click', function(event) {
-                    // Retrieve pet details from the clicked card
-                    var card = button.closest('.pet-card');
-                    var petName = card.querySelector('.card-title').textContent;
-                    var petDescription = card.querySelector('.card-text').textContent;
-                    var petImageSrc = card.querySelector('.card-img-top').getAttribute('src');
 
-                    // Encode pet details for URL
-                    var encodedName = encodeURIComponent(petName);
-                    var encodedDescription = encodeURIComponent(petDescription);
-                    var encodedImageSrc = encodeURIComponent(petImageSrc);
+<!-- Pet Details Modal -->
+<div class="modal fade" id="petModal" tabindex="-1" role="dialog" aria-labelledby="petModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="petModalLabel">Pet Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img id="modal-pet-image" src="" class="img-fluid" alt="Pet Image">
+                <p id="modal-pet-name"></p>
+                <p id="modal-pet-description"></p>
+                <!-- Add more pet details here -->
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" >Adopt Now!</button>
+           <!-- <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button> -->
+            
+            </div>
+        </div>
+    </div>
+</div>
 
-                    // Construct URL with pet details as parameters
-                    var url = 'individualpet.html?name=' + encodedName + '&description=' + encodedDescription + '&image=' + encodedImageSrc;
 
-                    // Navigate to individualpet.html with pet details
-                    window.location.href = url;
-                });
-            });
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Handle click event for adopt button
+        $(".adopt-btn").click(function() {
+            // Get the pet details from data attributes
+            var petName = $(this).closest(".card").find(".card-title").text();
+            var petDescription = $(this).closest(".card").find(".card-text").text();
+            var petImage = $(this).closest(".card").find(".card-img-top").attr("src");
+
+            // Populate modal with pet details
+            $("#modal-pet-image").attr("src", petImage);
+            $("#modal-pet-name").text("Name: " + petName);
+            $("#modal-pet-description").text("Description: " + petDescription);
+
+            // Show modal
+            $("#petModal").modal("show");
         });
-    </script>
+    });
+</script>
 
     <?php include("footer.php");?>
 
