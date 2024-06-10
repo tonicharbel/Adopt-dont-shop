@@ -5,16 +5,16 @@
       <div class="col-6 col-md-2 mb-3">
         <h4>Section</h4>
         <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0" style="color: white;">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contact us!</a></li>
+        <li class="nav-item mb-2"><a href="index.php" class="nav-link p-0" style="color: white;">Home</a></li>
+          <li class="nav-item mb-2"><a href="about.php" class="nav-link p-0 text-muted">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="contact.php" class="nav-link p-0 text-muted">Contact us!</a></li>
         </ul>
       </div>
 
       <div class="col-6 col-md-2 mb-3">
         <h4>Section</h4>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Submit Your Pet for Adoption</a></li>
+          <li class="nav-item mb-2"><a href="rehomepet.php" class="nav-link p-0 text-muted">Submit Your Pet for Adoption</a></li>
           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Meet Our Team</a></li>
           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Donate</a></li>
         </ul>
@@ -24,7 +24,7 @@
       <div class="col-6 col-md-2 mb-3">
         <h4>Explore</h4>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Available Pets</a></li>
+          <li class="nav-item mb-2"><a href="petList.php" class="nav-link p-0 text-muted">Available Pets</a></li>
           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Adoption Process</a></li>
           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">success stories</a></li>
 

@@ -1,3 +1,109 @@
+<?php
+
+session_start();
+
+include '../backend/connection.php';
+
+if($_SESSION['user_id']){
+if(isset($_POST['submit'])){
+    $pname = mysqli_real_escape_string($con, $_POST['pname']);
+    $ptwb = mysqli_real_escape_string($con, $_POST['ptwb']);
+    $age = mysqli_real_escape_string($con, $_POST['age']);
+    $disease = mysqli_real_escape_string($con, $_POST['disease']);
+    $gender = mysqli_real_escape_string($con, $_POST['gender']);
+    $vaccine = mysqli_real_escape_string($con, $_POST['vaccine']);
+    $neut = mysqli_real_escape_string($con, $_POST['neut']);
+    $desc = mysqli_real_escape_string($con, $_POST['desc']);
+    $image = basename($_FILES["image"]["name"]);
+    //$loc = mysqli_real_escape_string($con, $_POST['loc']);
+
+    try {
+
+        $select1 = mysqli_query($con, "SELECT * FROM animalslists where AnimalName = '$pname' And AnimalDescription = '$desc' And AnimalImage = '$image' And AnimalAge = '$age' And Disease = '$disease' And Gender = '$gender' And Vaccinated = '$vaccine' And Neutered = '$neut'");
+
+        if(mysqli_num_rows($select1) == 1){
+
+            echo "<script>alert('Pet already exists!');</script>";
+            //$_SESSION['alert_message'] = 'Pet already exists!';
+            //$_SESSION['alert_type'] = 'danger';
+        
+            //header("Location: register.php");
+            exit();
+        }
+        else{
+        
+                $insert1 = mysqli_query($con, "INSERT INTO animalslists (AnimalName, AnimalDescription , AnimalImage, AnimalAge, Disease, Gender, Vaccinated, Neutered) VALUES ('$pname' ,'$desc','$image' ,'$age' ,'$disease' ,'$gender' ,'$vaccine' ,'$neut')");
+
+                $target_dir = "images/";
+                $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                $uploadOk = 1;
+                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+                
+                $check = getimagesize($_FILES["image"]["tmp_name"]);
+                if($check !== false) {
+                    echo "File is an image - " . $check["mime"] . ".";
+                    $uploadOk = 1;
+                } else {
+                    echo "File is not an image.";
+                    $uploadOk = 0;
+                }
+
+                if (file_exists($target_file)) {
+                    echo "Sorry, file already exists.";
+                    $uploadOk = 0;
+                }
+
+                if ($_FILES["image"]["size"] > 500000) {
+                    echo "Sorry, your file is too large.";
+                    $uploadOk = 0;
+                }
+
+                if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+                    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                    $uploadOk = 0;
+                }
+
+                if ($uploadOk == 0) {
+                    echo "Sorry, your file was not uploaded.";
+                } else {
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                        //echo ";
+                        echo "<script>alert('The file ". htmlspecialchars( basename( $_FILES["image"]["name"])). " has been uploaded.');</script>";
+                        
+                    } else {
+                        echo "Sorry, there was an error uploading your file.";
+                    }
+                }
+
+                $select2 = mysqli_query($con, "SELECT * FROM categories where CategoryType = '$ptwb'");
+
+                if(mysqli_num_rows($select2) == 0){
+                    $insert2 = mysqli_query($con, "INSERT INTO categories (CategoryType) VALUES ('$ptwb')");
+                }
+
+                echo "<script>alert('Pet successful');</script>";
+                //$_SESSION['alert_message'] = 'Pet successful';
+                //$_SESSION['alert_type'] = 'success';
+                
+                //header("Location: logIn.php");
+                exit();
+            }
+
+        } catch (mysqli_sql_exception) {
+        header("Location: error.php");
+        exit();
+    }
+}
+}
+else{
+    header("Location: logIn.php");
+    exit();
+}
+
+mysqli_close($con);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,44 +140,44 @@
 <div class="container">
     <div class="form-container mt-5 pet-form-container" style="max-width: 800px; margin-bottom: 5%;">
         <h2 class="text-center mb-4">Pet Submission Form</h2>
-        <form>
+        <form method="post" action="rehomepet.php" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="petName">Pet Name</label>
-                        <input type="text" class="form-control" id="petName" placeholder="Enter pet Name">
+                        <input type="text" name="pname" class="form-control" id="petName" placeholder="Enter pet Name" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="petType">Pet Type With Breed</label>
-                        <input type="text" class="form-control" id="petType" placeholder="Enter pet Type">
+                        <input type="text" name="ptwb" class="form-control" id="petType" placeholder="Enter pet Type" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="petAge">Pet Age</label>
-                        <input type="text" class="form-control" id="petAge" placeholder="Enter pet Age">
+                        <input type="text" name="age" class="form-control" id="petAge" placeholder="Enter pet Age" required>
                     </div>
                 </div>
             
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="disease">Any Disease? If Yes, Specify</label>
-                        <input type="text" class="form-control" id="disease" placeholder="Enter disease if any">
+                        <input type="text" name="disease" class="form-control" id="disease" placeholder="Enter disease if any" required>
                     </div>
                 </div>
-              
-               
+                
+                
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Gender</label><br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
                             <label class="form-check-label" for="male">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>
                             <label class="form-check-label" for="female">Female</label>
                         </div>
                     </div>
@@ -80,11 +186,11 @@
                     <div class="form-group">
                         <label>Vaccinated</label><br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="vaccine" id="vacc" value="vaccinated">
+                            <input class="form-check-input" type="radio" name="vaccine" id="vacc" value="vaccinated" required>
                             <label class="form-check-label" for="vacc">Yes</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="vaccine" id="notvacc" value="notvaccinated">
+                            <input class="form-check-input" type="radio" name="vaccine" id="notvacc" value="notvaccinated" required>
                             <label class="form-check-label" for="notvacc">No</label>
                         </div>
                     </div>
@@ -93,7 +199,7 @@
                     <div class="form-group">
                         <label>Neutered</label><br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="neutered" value="neutered">
+                            <input class="form-check-input" name="neut" type="checkbox" id="neutered" value="neutered" required>
                             <label class="form-check-label" for="neutered">Yes</label>
                         </div>
                     </div>
@@ -102,18 +208,18 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="petDescription">Description</label>
-                        <textarea class="form-control" id="petDescription" rows="3" placeholder="Enter pet description" style="resize: none;"></textarea>
+                        <textarea class="form-control" name="desc" id="petDescription" rows="3" placeholder="Enter pet description" style="resize: none;" required></textarea>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="petImage">Upload Image</label>
-                        <input type="file" class="form-control-file" id="petImage">
+                        <input type="file" name="image" class="form-control-file" id="petImage" required>
                     </div>
                 </div>
             </div>
             
-            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            <button type="submit" name="submit" class="btn btn-primary btn-block">Submit</button>
         </form>
     </div>
 </div>

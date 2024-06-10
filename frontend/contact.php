@@ -1,3 +1,37 @@
+<?php
+
+include '../backend/connection.php';
+
+session_start();
+
+if(isset($_POST['submit'])){
+    $username = mysqli_real_escape_string($con, $_POST['name']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $pnb = mysqli_real_escape_string($con, $_POST['phone']);
+    $msg = mysqli_real_escape_string($con, $_POST['message']);
+    $id = mysqli_real_escape_string($con, $_SESSION['user_id']);
+
+    try {
+        
+        $insert = mysqli_query($con, "INSERT INTO contactus (	UserId, Message, PhoneNumber, Email, UserName) VALUES ('$id', '$msg', '$pnb', '$email' ,'$username')");
+        
+        $_SESSION['alert_message'] = 'message has sent';
+        $_SESSION['alert_type'] = 'success';
+        
+        header("Location: contact.php");
+        exit();
+    } catch (mysqli_sql_exception) {
+      
+      header("Location: error.php");
+      exit();
+    }
+  }
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,13 +67,25 @@
   </head>
   </head>
   <body style="background-color: #fafafa;">
+
+  <?php
+    if (isset($_SESSION['alert_message'])) {
+	    $alert_message = $_SESSION['alert_message'];
+	    $alert_type = isset($_SESSION['alert_type']) ? $_SESSION['alert_type'] : 'info';
+
+	    echo "<div class='alert alert-$alert_type' style='margin-bottom:-0.05px;'>$alert_message</div>";
+
+	    unset($_SESSION['alert_message']);
+	    unset($_SESSION['alert_type']);
+    }
+		?>
     
     <!-- Navbar--> 
     <?php include("header.php"); ?>
     
-    <div class="space" style="margin-top: 10%;"></div>
-    <div class="container_">
-      <span class="big-circle"></span>
+    <div class="space" style="margin-top: 8%;"></div>
+    <div class="container_" style="position: static;">
+      <!-- <span class="big-circle"></span> -->
       <div class="form">
         <div class="contact-info">
           <h3 class="title">Let's get in touch</h3>
@@ -82,26 +128,26 @@
           <span class="circle one"></span>
           <span class="circle two"></span>
 
-          <form class="forms" action="index.html" autocomplete="off">
+          <form class="forms" action="contact.php" method="post" autocomplete="off">
             <h3 class="title">Contact us</h3>
             <div class="input-container">
-              <input type="text" name="name" class="input" placeholder="Username" />
+              <input type="text" name="name" class="input" placeholder="Username" required />
             </div>
             <div class="input-container">
-              <input type="email" name="email" class="input" placeholder="Email"/>
+              <input type="email" name="email" class="input" placeholder="Email" required />
             </div>
             <div class="input-container">
-              <input type="tel" name="phone" class="input" placeholder="Phone Number" />
+              <input type="tel" name="phone" class="input" placeholder="Phone Number" required />
             </div>
             <div class="input-container textarea">
-              <textarea name="message" class="input" placeholder="Message"></textarea>
+              <textarea name="message" class="input" placeholder="Message" required ></textarea>
             </div>
-            <input type="submit" value="Send" class="btn_" />
+            <input type="submit" name="submit" value="Send" class="btn_" />
           </form>
         </div>
       </div>
     </div>
-    <div class="space" style="margin-top: 10%;"></div>
+    <div class="space" style="margin-top: 8%;"></div>
 
 
     <!-- Footer -->
