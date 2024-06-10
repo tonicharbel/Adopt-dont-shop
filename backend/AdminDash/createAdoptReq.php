@@ -5,7 +5,7 @@ if ($_SESSION['isloggedin'] != 1) {
     exit();
 }
 
-require_once 'connection.php';
+include('../connection.php');
 
 if (isset($_GET['userId']) && isset($_GET['AnimalId'])) {
    $userID = mysqli_real_escape_string($con, $_POST['UserID']);

@@ -5,7 +5,7 @@ if ($_SESSION['isloggedin'] != 1) {
     header("Location: index.php");
     exit();
 } else {
-    require_once 'connection.php';
+    include('../connection.php');
 
     
     if (isset($_GET['userId'])) {

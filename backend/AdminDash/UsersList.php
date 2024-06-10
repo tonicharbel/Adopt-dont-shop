@@ -6,7 +6,7 @@ if($_SESSION['isloggedin']!=1)
     header("Location:index.php");
 }
 else{
-require_once 'connection.php';
+  include('../connection.php');
 
 
 

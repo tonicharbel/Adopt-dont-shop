@@ -8,7 +8,7 @@ if (!isset($_SESSION['isloggedin']) || $_SESSION['isloggedin'] != 1) {
 }
 
 
-require_once 'connection.php';
+include('../connection.php');
 
 
 $query = "SELECT * FROM animalslists WHERE Visible = 1";

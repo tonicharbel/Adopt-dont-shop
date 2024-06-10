@@ -5,7 +5,7 @@ if (isset($_GET['AnimalId'])) {
     $animalId = intval($_GET['AnimalId']); // Convert to integer to prevent SQL injection
 
 
-    include('connection.php');
+    include('../connection.php');
    
     $sql = "DELETE FROM animalslists WHERE AnimalId = $animalId";
 

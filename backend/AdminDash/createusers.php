@@ -5,7 +5,7 @@ if ($_SESSION['isloggedin'] != 1) {
     exit();
 }
 
-require_once 'connection.php';
+include('../connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userFirstName = mysqli_real_escape_string($con, $_POST['UserFirstName']);
