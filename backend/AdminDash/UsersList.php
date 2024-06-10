@@ -3,7 +3,7 @@ session_start();
 $_SESSION['isloggedin']=1;
 if($_SESSION['isloggedin']!=1)
 {
-    header("Location:index.php");
+    header("Location: ../../../../frontend/index.php");
 }
 else{
   include('../connection.php');

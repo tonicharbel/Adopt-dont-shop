@@ -22,8 +22,14 @@ if(isset($_POST['submit'])){
                 $_SESSION['user_email'] = $row['UserEmail'];
                 $_SESSION["user_name"] = $row['UserFirstName'].' '.$row['UserLastName'];
                 
-                header("Location: index.php");
-                exit();
+								if($row['GroupId'] == 0){
+									header("Location: index.php");
+                  exit();
+								}
+								else{
+									header("Location: index.php");
+                  exit();
+								}
             }
             else{
 								$_SESSION['alert_message'] = 'Incorrect password';

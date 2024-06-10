@@ -89,7 +89,7 @@ $current_file = basename($_SERVER['PHP_SELF']);
 <div class="container mt-3">
         <div class="profile-container">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0qOHX_y9WtYm5XU7RLbLBF74PAmzKe22WkQ&s" alt="Profile Picture">
-            <h4>Patrick Abi Ramia</h4>
+            <h4><?php echo($_SESSION['user_name']) ?  $_SESSION['username'] : 'Admin'; ?></h4>
         </div>
         <hr class="horizontal-line">
     </div>

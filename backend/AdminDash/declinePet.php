@@ -5,14 +5,14 @@ if (isset($_GET['AnimalId'])) {
     $animalId = intval($_GET['AnimalId']); // Convert to integer to prevent SQL injection
 
 
-    include('../connection.php');
+include('../connection.php');
    
     $sql = "DELETE FROM animalslists WHERE AnimalId = $animalId";
 
     if ($con->query($sql) === TRUE) {
 
         if (isset($_GET['src']) && $_GET['src'] == "petlist") {
-            header("Location: petslist.php");
+            header("Location: PetsList.php");
         } else {
             header("Location: requestPet.php");
         }

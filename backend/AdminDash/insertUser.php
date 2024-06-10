@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['isloggedin'] != 1) {
-    header("Location: index.php");
+    header("Location: ../../../../frontend/index.php");
     exit();
 }
 include("sideBar.php");
