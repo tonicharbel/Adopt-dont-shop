@@ -31,6 +31,7 @@ if(isset($_POST['submit'])){
         
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         
+        
         $insert = mysqli_query($con, "INSERT INTO users (UserFirstName, UserLastName, UserEmail, UserPassword, UserAddress, UserCity, UserCountry, UserZipCode, UserPhone) VALUES ('$firstname' ,'$lastname','$email' ,'$hashed_password' ,'$address' ,'$city' ,'$country' ,'$zcode' ,'$pnb')");
         
         $_SESSION['alert_message'] = 'Signup successful';

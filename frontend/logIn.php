@@ -21,13 +21,15 @@ if(isset($_POST['submit'])){
                 $_SESSION['user_id'] = $row['UserId'];
                 $_SESSION['user_email'] = $row['UserEmail'];
                 $_SESSION["user_name"] = $row['UserFirstName'].' '.$row['UserLastName'];
-                
+                $_SESSION['isloggedin']=1;
+
 								if($row['GroupId'] == 0){
 									header("Location: index.php");
                   exit();
 								}
 								else{
-									header("Location: index.php");
+									
+									header("Location: ../../../backend/AdminDash/UsersList.php");
                   exit();
 								}
             }

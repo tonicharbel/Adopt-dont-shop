@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['isloggedin']=1;
+
 if($_SESSION['isloggedin']!=1)
 {
     header("Location: ../../../../frontend/index.php");

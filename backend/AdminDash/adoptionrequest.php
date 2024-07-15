@@ -1,6 +1,6 @@
 <?php
 session_start();
-//$_SESSION['isLoggedin']=1;
+
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../../../../frontend/index.php");
