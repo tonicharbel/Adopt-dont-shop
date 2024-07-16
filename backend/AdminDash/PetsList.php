@@ -40,7 +40,7 @@ if (mysqli_num_rows($result) == 0) {
         <div class="card-body">
             <h5 class="card-title"><?php echo $row['AnimalName']; ?></h5>
             <p class="card-text"><?php echo $row['AnimalDescription']; ?></p>
-            <a href="editpet.php?AnimalId=<?php echo $row['AnimalId']; ?>" class="btn btn-warning btn-center adopt-btn">Edit</a>
+            <a href="editpets.php?AnimalId=<?php echo $row['AnimalId']; ?>" class="btn btn-warning btn-center adopt-btn">Edit</a>
             <a href="declinePet.php?AnimalId=<?php echo $row['AnimalId']; ?>&src=petlist" class="btn btn-danger btn-center adopt-btn">Delete</a>
         </div>
     </div>

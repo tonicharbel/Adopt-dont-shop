@@ -69,7 +69,7 @@ if (mysqli_num_rows($result) == 0) {
           <td><?php echo $row['AnimalName']; ?></td>
           <td><?php echo $row['AnimalDescription']; ?></td>
           <td class="btn-options">
-            <a href="declinepet.php?animalId=<?php echo $row['AnimalId']; ?>" class="btn btn-primary">Detail</a>
+            <a href="detailpet.php?AnimalId=<?php echo $row['AnimalId']; ?>" class="btn btn-primary">Detail</a>
             <a href="acceptPet.php?AnimalId=<?php echo $row['AnimalId'];?>" class="btn btn-success">Accept</a>
             <a href="declinepet.php?AnimalId=<?php echo $row['AnimalId'];?>"  class="btn btn-danger">Decline</a>
           </td>

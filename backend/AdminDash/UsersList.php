@@ -38,7 +38,6 @@ else
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
-            <th>Password</th>
             <th>City</th>
             <th>Country</th>
             <th>ZipCode</th>
@@ -61,7 +60,6 @@ else
         echo "<td>$row[UserFirstName]</td>";
         echo "<td>$row[UserLastName]</td>";
         echo "<td>$row[UserEmail]</td>";
-        echo "<td>$row[UserPassword]</td>";
         echo "<td>$row[UserCity]</td>";
         echo "<td>$row[UserCountry]</td>";
         echo "<td>$row[UserZipCode]</td>";

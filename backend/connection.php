@@ -1,9 +1,14 @@
 <?php
 
-$servername = "localhost"; 
+// $servername = "localhost"; 
+// $username = "root"; 
+// $password = ""; 
+// $database = "adoptdontbuy"; 
+
+$servername = "Localhost"; 
 $username = "root"; 
 $password = ""; 
-$database = "adoptdontbuy"; 
+$database = "adoptdontshop"; 
 
 try{
   $con = new mysqli($servername, $username, $password, $database);
