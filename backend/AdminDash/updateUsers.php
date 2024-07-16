@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if ($_SESSION['isloggedin'] != 1) {
     header("Location: ../../../../frontend/index.php");
     exit();
@@ -40,4 +41,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     mysqli_close($con);
 }
+
 ?>

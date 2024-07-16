@@ -1,4 +1,5 @@
 <div class="container-fluid custom-bg-color">
+
   <footer class="py-5">
     <div class="row">
 
@@ -19,7 +20,6 @@
           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Donate</a></li>
         </ul>
       </div>
-
 
       <div class="col-6 col-md-2 mb-3">
         <h4>Explore</h4>
@@ -54,4 +54,5 @@
     </div>
     
   </footer>
+  
 </div>

@@ -31,7 +31,7 @@
         </li>
         
       </ul>
-      
+        
       <!-- Login/SignUp icon -->
       <div class="d-flex">
       <?php
@@ -58,7 +58,6 @@
               </div>
 
               <?php
-              
             } 
             ?>
       </div>
