@@ -71,24 +71,24 @@ session_start();
     <?php include("footer.php");?>
 
     <script>
-        let slideIndex = 0;
-showSlides();
+    let slideIndex = 0;
+    showSlides();
 
-function showSlides() {
-    const slides = document.getElementsByClassName("slider-image");
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-        slides[i].style.opacity = 0; // Hide the images initially
+    function showSlides() {
+        const slides = document.getElementsByClassName("slider-image");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            slides[i].style.opacity = 0; // Hide the images initially
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+        slides[slideIndex - 1].style.transition = "opacity 1s"; // Add a smooth opacity transition
+        slides[slideIndex - 1].style.opacity = 1; // Show the active image
+        setTimeout(showSlides, 4000); // Change image every 4 seconds
     }
-    slideIndex++;
-    if (slideIndex > slides.length) {
-        slideIndex = 1;
-    }
-    slides[slideIndex - 1].style.display = "block";
-    slides[slideIndex - 1].style.transition = "opacity 1s"; // Add a smooth opacity transition
-    slides[slideIndex - 1].style.opacity = 1; // Show the active image
-    setTimeout(showSlides, 4000); // Change image every 4 seconds
-}
     </script>
 </body>
 </html>

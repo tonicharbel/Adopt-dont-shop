@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
       $select = mysqli_query($con, "SELECT * FROM users where UserEmail = '$email'");
 
       if(mysqli_num_rows($select) == 1){
-
+        
         $_SESSION['alert_message'] = 'User already exists!';
         $_SESSION['alert_type'] = 'danger';
         
@@ -30,7 +30,6 @@ if(isset($_POST['submit'])){
       else{
         
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        
         
         $insert = mysqli_query($con, "INSERT INTO users (UserFirstName, UserLastName, UserEmail, UserPassword, UserAddress, UserCity, UserCountry, UserZipCode, UserPhone) VALUES ('$firstname' ,'$lastname','$email' ,'$hashed_password' ,'$address' ,'$city' ,'$country' ,'$zcode' ,'$pnb')");
         
@@ -50,13 +49,10 @@ if(isset($_POST['submit'])){
     $_SESSION['alert_message'] = 'Passwords do not match!';
     $_SESSION['alert_type'] = 'danger';
     
-    
     header("Location: register.php");
     exit();
   }
 }
-
-
 
 ?>
 

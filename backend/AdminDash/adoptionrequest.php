@@ -2,16 +2,12 @@
 session_start();
 
 
-
 if (!isset($_SESSION['user_id'])) {
- 
     header("Location: ../../../../frontend/index.php");
     exit();
 }
 
-
 include('../connection.php');
-
 
 $query = "SELECT adopts.*, adoptanimals.animalid
           FROM adopts
@@ -79,7 +75,7 @@ if (mysqli_num_rows($result) == 0) {
           <td><?php echo $row['CreatedAt']; ?></td>
          
           <td class="btn-options">
-            <a href="detailAdoption.php?AdoptId=<?php echo $row['AdoptId']; ?>" class="btn btn-primary">Detail</a>
+            <a href="declinepet.php?animalId=<?php echo $row['AdoptId']; ?>" class="btn btn-primary">Detail</a>
             <a href="acceptPet.php?AnimalId=<?php echo $row['AdoptId'];?>" class="btn btn-success">Accept</a>
             <a href="declinepet.php?AnimalId=<?php echo $row['AdoptId'];?>"  class="btn btn-danger">Decline</a>
           </td>

@@ -8,35 +8,25 @@ if ($_SESSION['isloggedin'] != 1) {
 include('../connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-
-    // Check if all required fields are set and not empty
-    if (!isset($_POST['petName']) || !isset($_POST['petDescription']) || !isset($_POST['petAge'])) {
-        echo "Missing required fields.";
-        exit();
-    }
-
-    // Escape and sanitize inputs
+    $fileName = $_FILES["images"]["name"];
     $petName = mysqli_real_escape_string($con, $_POST['petName']);
     $petDescription = mysqli_real_escape_string($con, $_POST['petDescription']);
     $petAge = mysqli_real_escape_string($con, $_POST['petAge']);
     $disease = mysqli_real_escape_string($con, $_POST['disease']);
     $gender = mysqli_real_escape_string($con, $_POST['gender']);
-    $vaccinated = isset($_POST['vaccine']) ? 1 : 0; // Assuming 'vaccine' is a checkbox or radio button
+    $vaccinated = mysqli_real_escape_string($con, $_POST['vaccine']);
+    $neutered = isset($_POST['neutered']) ? 1 : 0;
 
-    // Handle file upload
-    if (isset($_FILES['images']) && $_FILES['images']['error'] == 0) {
-        $imageTmpPath = $_FILES['images']['tmp_name'];
-        $imageData = addslashes(file_get_contents($imageTmpPath)); 
-    } else {
-        $imageData = null; 
-    }
-  
-    // Prepare and execute SQL query
-    $query = "INSERT INTO animalslists (AnimalName, AnimalDescription, AnimalImage, AnimalAge, Disease, Gender, Vaccinated)
-              VALUES ('$petName', '$petDescription', '$imageData', '$petAge', '$disease', '$gender', '$vaccinated')";
+if (isset($_FILES['petImage']) && $_FILES['petImage']['error'] == 0) {
+
+    $imageTmpPath = $_FILES['petImage']['tmp_name'];
+    $imageData = addslashes(file_get_contents($imageTmpPath)); 
+} else {
+    $imageData = null; 
+}
+
+
+    $query = "INSERT INTO animalslists (AnimalName, AnimalDescription, AnimalImage, AnimalAge, Disease, Gender, Vaccinated, Neutered) VALUES ('$petName', '$petDescription', '$imageData', '$petAge', '$disease', '$gender', '$vaccinated', '$neutered')";
     
     if (mysqli_query($con, $query)) {
         header("Location: petsList.php");

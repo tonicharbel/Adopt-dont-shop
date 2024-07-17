@@ -7,7 +7,7 @@ session_start();
 if(isset($_POST['submit'])){
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
-
+    
     try {
         $query = "SELECT * FROM users WHERE UserEmail = '$email'";
         $result = mysqli_query($con, $query);
@@ -56,8 +56,6 @@ if(isset($_POST['submit'])){
 				exit();
     }
 }
-
-
 
 ?>
 
