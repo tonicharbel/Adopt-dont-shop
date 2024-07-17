@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Check if the user is logged in
+
 if (!isset($_SESSION['isloggedin']) || $_SESSION['isloggedin'] != 1) {
     header("Location: ../../../../frontend/index.php");
     exit();
@@ -31,7 +31,7 @@ if (mysqli_num_rows($result) == 0) {
         <div class="col-lg-9"> 
             <div class="row">
                 <?php
-                // fetching for each pet and display the  details
+               
                 while ($row = mysqli_fetch_assoc($result)) {
                 ?>
                <div class="col-lg-4 col-md-6 col-sm-12 mb-4"> 

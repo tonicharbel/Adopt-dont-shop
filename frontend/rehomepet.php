@@ -23,11 +23,10 @@ if ($_SESSION['user_id']) {
                 echo "<script>alert('Pet already exists!');</script>";
                 exit();
             } else {
-                // Insert new pet into animalslists table
+               
                 $insert1 = mysqli_query($con, "INSERT INTO animalslists (AnimalName, AnimalDescription, AnimalImage, AnimalAge, Disease, Gender, Vaccinated, Neutered) 
                             VALUES ('$pname', '$desc', '$image', '$age', '$disease', '$gender', '$vaccinated', '$neutered')");
 
-                // Handle image upload
                 $target_dir = "images/";
                 $target_file = $target_dir . basename($_FILES["image"]["name"]);
                 $uploadOk = 1;
@@ -39,27 +38,23 @@ if ($_SESSION['user_id']) {
                     throw new Exception("File is not an image.");
                 }
 
-                // Check if file already exists
                 if (file_exists($target_file)) {
                     throw new Exception("Sorry, file already exists.");
                 }
 
-                // Check file size
                 if ($_FILES["image"]["size"] > 5000000) {
                     throw new Exception("Sorry, your file is too large.");
                 }
 
-                // Allow certain file formats
                 if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
                     throw new Exception("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
                 }
 
-                // Try to upload file
+               
                 if (!move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                     throw new Exception("Sorry, there was an error uploading your file.");
                 }
 
-                // Check and insert new category if not exists
                 $select2 = mysqli_query($con, "SELECT * FROM categories WHERE CategoryType = '$ptwb'");
                 if (mysqli_num_rows($select2) == 0) {
                     $insert2 = mysqli_query($con, "INSERT INTO categories (CategoryType) VALUES ('$ptwb')");

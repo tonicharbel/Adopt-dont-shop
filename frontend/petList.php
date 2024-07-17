@@ -98,11 +98,7 @@ session_start();
 
         if(isset($searchName) && !empty($searchName) || isset($category) && !empty($category) || isset($minAge) && !empty($minAge) || isset($maxAge) && !empty($maxAge)){
 
-            $query = "SELECT * FROM animalslists, animalscategories, categories 
-          WHERE animalslists.AnimalId = animalscategories.AnimalId 
-          AND animalscategories.CategoryId = categories.CategoryId 
-          AND visible = 1";
-
+            $query = "SELECT * FROM animalslists , animalscategories , categories WHERE animalslists.AnimalId = animalscategories.AnimalId AND animalscategories.CategoryId = categories.CategoryId ";
 
             if (!empty($searchName)) {
                 $query .= " AND AnimalName LIKE '%$searchName%'";

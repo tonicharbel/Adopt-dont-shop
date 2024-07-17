@@ -29,8 +29,8 @@ if(isset($_POST['submit'])){
 								}
 								else{
 									
-									// header("Location: ../../../../UsersList.php");
-									header("Location: ../backend/admindash/UsersList.php");
+									 header("Location: ../../../../UsersList.php");
+									//header("Location: ../backend/admindash/UsersList.php");
                   exit();
 								}
             }

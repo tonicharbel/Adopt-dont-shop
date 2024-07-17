@@ -60,7 +60,7 @@ if (mysqli_num_rows($result) == 0) {
       </thead>
       
       <tbody>
-        <!--  dynamic data from my database -->
+       
         <?php
                 
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -78,7 +78,6 @@ if (mysqli_num_rows($result) == 0) {
     <?php  } 
     
     ?>
-        <!-- End of  data -->
       </tbody>
     </table>
   </div>

@@ -1,51 +1,50 @@
 <?php
 session_start();
 
-// Check if the user is logged in
+
 if ($_SESSION['isloggedin'] != 1) {
     header("Location: ../../../../frontend/index.php");
     exit();
 }
 
-// Include the database connection file
 include('../connection.php');
 
-// Enable error reporting for debugging
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Check if AdoptId is set in the URL
+
 if (isset($_GET['AdoptId'])) {
-    // Get the AdoptId from the URL and convert it to an integer
+   
     $adoptId = intval($_GET['AdoptId']);
 
-    // Fetch adoption details
+   
     $queryAdopt = "SELECT AdoptId, AdoptStatus, Delivery, CreatedAt, UserId FROM adopts WHERE AdoptId = $adoptId";
     $resultAdopt = mysqli_query($con, $queryAdopt);
 
-    // Check if the query was successful and if there are any results
+   
     if ($resultAdopt && mysqli_num_rows($resultAdopt) > 0) {
         $adoptDetails = mysqli_fetch_assoc($resultAdopt);
 
-        // Fetch user details
+       
         $userId = $adoptDetails['UserId'];
         $queryUser = "SELECT UserFirstName, UserLastName, UserEmail, UserCity, UserCountry, UserZipCode, UserPhone FROM users WHERE UserId = $userId";
         $resultUser = mysqli_query($con, $queryUser);
         $userDetails = mysqli_fetch_assoc($resultUser);
 
-        // Fetch animal ID from adoptanimals table
+       
         $queryAnimalId = "SELECT AnimalId FROM adoptanimals WHERE AdoptId = $adoptId";
         $resultAnimalId = mysqli_query($con, $queryAnimalId);
         if ($resultAnimalId && mysqli_num_rows($resultAnimalId) > 0) {
             $animalId = mysqli_fetch_assoc($resultAnimalId)['AnimalId'];
 
-            // Fetch animal details
+            
             $queryAnimal = "SELECT AnimalName, AnimalDescription, AnimalImage, AnimalAge, Disease, Gender, Vaccinated, Neutered FROM animalslists WHERE AnimalId = $animalId";
             $resultAnimal = mysqli_query($con, $queryAnimal);
             $animalDetails = mysqli_fetch_assoc($resultAnimal);
 
-            // Merge all details into $adoptDetails
+            
             $adoptDetails = array_merge($adoptDetails, $userDetails, $animalDetails);
         } else {
             echo "Animal details not found!";
@@ -60,7 +59,7 @@ if (isset($_GET['AdoptId'])) {
     exit();
 }
 
-// Include the sidebar
+
 include("sideBar.php");
 ?>
 
