@@ -46,16 +46,16 @@ if(isset($_SESSION['user_id'])) {
 </head>
 <body>
 
-    <!-- Navbar -->
-    <?php include("header.php"); ?>
-    
-    <div class="banner">
+  <!-- Navbar -->
+  <?php include("header.php"); ?>
+ 
+  <div class="banner">
         <div>
             <h1>Love, Care for Your Pet</h1>
             <p>At our website, we aim to provide a loving home for pets in need. Whether you're looking to adopt a new furry friend or rehome your pet, we're here to help.</p>
         </div>
     </div>
-    
+ 
     
 
 

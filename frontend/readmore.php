@@ -18,9 +18,10 @@ session_start();
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-    
+
     <!-- Navbar -->
-    <?php include("header.php"); ?>
+      <?php include("header.php"); ?>
+    
     
     <video autoplay muted loop id="myVideo">
         <source src="images/vid1.mp4" type="video/mp4">

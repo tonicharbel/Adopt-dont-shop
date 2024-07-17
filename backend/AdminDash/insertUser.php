@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if ($_SESSION['isloggedin'] != 1) {
     header("Location: ../../../../frontend/index.php");
     exit();
@@ -20,6 +19,7 @@ include("sideBar.php");
 
 <div class="container mt-5">
 
+
     <h2>Add New User</h2>
     <form action="createUsers.php" method="post" class="mt-4">
         <div class="mb-3">
@@ -37,6 +37,10 @@ include("sideBar.php");
         <div class="mb-3">
             <label for="UserPassword" class="form-label">Password</label>
             <input type="password" class="form-control" id="UserPassword" name="UserPassword" required>
+        </div>
+        <div class="mb-3">
+            <label for="UserAddress" class="form-label">Address</label>
+            <input type="text" class="form-control" id="UserAddress" name="UserAddress" required>
         </div>
         <div class="mb-3">
             <label for="UserCity" class="form-label">City</label>

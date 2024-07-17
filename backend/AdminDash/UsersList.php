@@ -8,6 +8,8 @@ if($_SESSION['isloggedin']!=1)
 else{
   include('../connection.php');
 
+
+
 $query1="Select * FROM users";
 $result1= mysqli_query($con, $query1);
 $nbr= mysqli_num_rows($result1);
@@ -23,6 +25,8 @@ else
 {
   include("sideBar.php");
 ?>
+
+  
 
   <div id="users">
       <h2>Users</h2>

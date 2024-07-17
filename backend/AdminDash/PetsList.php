@@ -1,16 +1,19 @@
 <?php
 session_start();
 
-
+// Check if the user is logged in
 if (!isset($_SESSION['isloggedin']) || $_SESSION['isloggedin'] != 1) {
     header("Location: ../../../../frontend/index.php");
     exit();
 }
 
+
 include('../connection.php');
+
 
 $query = "SELECT * FROM animalslists WHERE Visible = 1";
 $result = mysqli_query($con, $query);
+
 
 if (mysqli_num_rows($result) == 0) {
     include("sideBar.php");
@@ -28,7 +31,7 @@ if (mysqli_num_rows($result) == 0) {
         <div class="col-lg-9"> 
             <div class="row">
                 <?php
-               
+                // fetching for each pet and display the  details
                 while ($row = mysqli_fetch_assoc($result)) {
                 ?>
                <div class="col-lg-4 col-md-6 col-sm-12 mb-4"> 
@@ -37,7 +40,7 @@ if (mysqli_num_rows($result) == 0) {
         <div class="card-body">
             <h5 class="card-title"><?php echo $row['AnimalName']; ?></h5>
             <p class="card-text"><?php echo $row['AnimalDescription']; ?></p>
-            <a href="editpet.php?AnimalId=<?php echo $row['AnimalId']; ?>" class="btn btn-warning btn-center adopt-btn">Edit</a>
+            <a href="editpets.php?AnimalId=<?php echo $row['AnimalId']; ?>" class="btn btn-warning btn-center adopt-btn">Edit</a>
             <a href="declinePet.php?AnimalId=<?php echo $row['AnimalId']; ?>&src=petlist" class="btn btn-danger btn-center adopt-btn">Delete</a>
         </div>
     </div>

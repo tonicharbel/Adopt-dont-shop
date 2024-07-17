@@ -53,8 +53,26 @@ session_start();
                 <option value="Cat">Cat</option>
                 <option value="Dog">Dog</option>
             </select>
+            
         </div>
-
+        <div class="col-md-2 mb-3">
+            <select class="form-control" id="categorySelect">
+                <option value="" disabled selected>Breed</option>
+                <option value="">Labrador Retriever</option>
+                <option value="dog">Golden Retriever</option>
+                <option value="dog">Rottweiler</option>
+                <option value="dog">Husky</option>
+                <option value="">Bichon </option>
+            </select>
+        </div>
+        <div class="col-md-2 mb-3">
+            <select class="form-control" id="categorySelect">
+                <option value="" disabled selected>Gender</option>
+                <option value="cat">Male</option>
+                <option value="dog">Female</option>
+            </select>
+            
+        </div>
         <div class="col-md-2 mb-3">
             <input type="number" class="form-control" id="minAgeInput" name="minAge" placeholder="Min Age">
         </div>
@@ -65,7 +83,7 @@ session_start();
             <button type="submit" name="search" class="custom-btn" >Search</button>
         </div>
     </form>
-    
+
 </div>
 
 <?php
@@ -80,7 +98,11 @@ session_start();
 
         if(isset($searchName) && !empty($searchName) || isset($category) && !empty($category) || isset($minAge) && !empty($minAge) || isset($maxAge) && !empty($maxAge)){
 
-            $query = "SELECT * FROM animalslists , animalscategories , categories WHERE animalslists.AnimalId = animalscategories.AnimalId AND animalscategories.CategoryId = categories.CategoryId ";
+            $query = "SELECT * FROM animalslists, animalscategories, categories 
+          WHERE animalslists.AnimalId = animalscategories.AnimalId 
+          AND animalscategories.CategoryId = categories.CategoryId 
+          AND visible = 1";
+
 
             if (!empty($searchName)) {
                 $query .= " AND AnimalName LIKE '%$searchName%'";
@@ -116,7 +138,6 @@ session_start();
 
         if (mysqli_num_rows($select_petinfo) > 0) {
             while ($fetch_petinfo = mysqli_fetch_assoc($select_petinfo)) {
-                if($fetch_petinfo['Visible']=='1'){
                 ?>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="card pet-card">
@@ -129,9 +150,6 @@ session_start();
                     </div>
                 </div>
                 <?php
-                }else{
-                    continue;
-                }
             }
         } else {
             echo "<blockquote>No pets found.</blockquote><br><br><br><br><br><br><br><br><br><br>";
@@ -159,7 +177,7 @@ try {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="images/<?php echo $fetch_petinfo['AnimalImage']; ?>" class="rounded mx-auto d-block" style="width: 40%; height: 210px;" alt="Pet Image">
+                            <img src="images/<?php echo $fetch_petinfo['AnimalImage']; ?>" class="rounded mx-auto d-block" alt="Pet Image">
                             <table>
                                 <tr><th>Pet Name :&nbsp;</th><td><?php echo ($fetch_petinfo['AnimalName'])? $fetch_petinfo['AnimalName'] : "empty"; ?></td></tr>
                                 <tr><th>Pet Age :&nbsp;</th><td><?php  echo ($fetch_petinfo['AnimalAge'])? $fetch_petinfo['AnimalAge'] : "empty"; ?></td></tr>

@@ -18,7 +18,9 @@ session_start();
    <!-- Bootstrap icons -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+
 <body>
+
     <!-- Navbar -->
     <?php include("header.php"); ?>
     
@@ -32,10 +34,10 @@ session_start();
             <div class="footer">
                 <p>We're sorry, the page you requested could not be found. Please go back to the Home Page!</p>
                 <button>
-                    <a href="index.php">Return To Home</a>
+                  <a href="index.php">Return To Home</a>
                 </button>
             </div>
-            </div>
+          </div>
     </section>
 
     <!-- Footer -->

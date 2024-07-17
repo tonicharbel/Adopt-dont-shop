@@ -6,9 +6,11 @@ if ($_SESSION['isloggedin'] != 1) {
     exit();
 } else {
     include('../connection.php');
+
     
     if (isset($_GET['userId'])) {
         $userId = intval($_GET['userId']);
+
     
         $query = "SELECT * FROM users WHERE UserId = $userId";
         $result = mysqli_query($con, $query);
@@ -55,12 +57,10 @@ if ($_SESSION['isloggedin'] != 1) {
             <label for="UserEmail" class="form-label">Email</label>
             <input type="email" class="form-control" id="UserEmail" name="UserEmail" value="<?php echo $user['UserEmail']; ?>" required>
         </div>
-        <!--
         <div class="mb-3">
             <label for="UserPassword" class="form-label">Password</label>
             <input type="password" class="form-control" id="UserPassword" name="UserPassword" value="<?php echo $user['UserPassword']; ?>" required>
         </div>
-        -->
         <div class="mb-3">
             <label for="UserCity" class="form-label">City</label>
             <input type="text" class="form-control" id="UserCity" name="UserCity" value="<?php echo $user['UserCity']; ?>" required>
