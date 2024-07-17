@@ -3,7 +3,9 @@ session_start();
 
 if($_SESSION['isloggedin']!=1)
 {
-    header("Location: ../../../../frontend/index.php");
+   header("Location: ../../../../frontend/index.php");
+  
+  //  header("Location: ../../frontend/index.php");
 }
 else{
   include('../connection.php');
@@ -49,8 +51,7 @@ else
           </tr>
         </thead>
         <tbody id="userTable">
-          <!-- User rows will be populated here -->
-     
+          
     <?php
     for($i=0; $i<$nbr; $i++)
     {
