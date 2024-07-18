@@ -56,24 +56,6 @@ session_start();
             
         </div>
         <div class="col-md-2 mb-3">
-            <select class="form-control" id="categorySelect">
-                <option value="" disabled selected>Breed</option>
-                <option value="">Labrador Retriever</option>
-                <option value="dog">Golden Retriever</option>
-                <option value="dog">Rottweiler</option>
-                <option value="dog">Husky</option>
-                <option value="">Bichon </option>
-            </select>
-        </div>
-        <div class="col-md-2 mb-3">
-            <select class="form-control" id="categorySelect">
-                <option value="" disabled selected>Gender</option>
-                <option value="cat">Male</option>
-                <option value="dog">Female</option>
-            </select>
-            
-        </div>
-        <div class="col-md-2 mb-3">
             <input type="number" class="form-control" id="minAgeInput" name="minAge" placeholder="Min Age">
         </div>
         <div class="col-md-2 mb-3">
@@ -100,8 +82,7 @@ session_start();
 
             $query = "SELECT * FROM animalslists, animalscategories, categories 
           WHERE animalslists.AnimalId = animalscategories.AnimalId 
-          AND animalscategories.CategoryId = categories.CategoryId 
-          AND visible = 1";
+          AND animalscategories.CategoryId = categories.CategoryId";
 
 
             if (!empty($searchName)) {
@@ -137,7 +118,9 @@ session_start();
         $select_petinfo = mysqli_query($con, $query);
 
         if (mysqli_num_rows($select_petinfo) > 0) {
+            
             while ($fetch_petinfo = mysqli_fetch_assoc($select_petinfo)) {
+                if($fetch_petinfo['Visible']==1){
                 ?>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="card pet-card">
@@ -150,6 +133,9 @@ session_start();
                     </div>
                 </div>
                 <?php
+                }else{
+                    continue;
+                }
             }
         } else {
             echo "<blockquote>No pets found.</blockquote><br><br><br><br><br><br><br><br><br><br>";
