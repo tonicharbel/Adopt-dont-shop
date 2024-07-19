@@ -8,22 +8,23 @@ if ($_SESSION['isloggedin'] != 1) {
 include('../connection.php');
 
 if (isset($_GET['userId']) && isset($_GET['AnimalId'])) {
-   $userID = mysqli_real_escape_string($con, $_POST['UserID']);
-   $animalID = mysqli_real_escape_string($con, $_POST['AnimalID']);
-     //$userID=6; just testing it
-    // $animalID =14; just testing it
+    $userID = mysqli_real_escape_string($con, $_GET['userId']);
+    $animalID = mysqli_real_escape_string($con, $_GET['AnimalId']);
+    
+    // SQL query to insert a new adoption request
     $query = "INSERT INTO adopts (userid, adoptdate, adoptstatus)
-              VALUES ($userID, NOW(), 'pending')";
+              VALUES ('$userID', NOW(), 'pending')";
     
     if (mysqli_query($con, $query)) {
         $adoptid = mysqli_insert_id($con); // Get the adoptid of the newly inserted adoption request
+
+        // SQL query to link the animal to the adoption request
         $query2 = "INSERT INTO adoptanimals (adoptid, animalid)
-                   VALUES ($adoptid, $animalID)";
+                   VALUES ('$adoptid', '$animalID')";
 
         if (mysqli_query($con, $query2)) {
-            header("Location: petslist.php");
+            header("Location: ../../frontend/track.php");
             exit();
-            
         } else {
             echo "Error inserting adoptanimal record: " . mysqli_error($con);
         }
@@ -32,5 +33,7 @@ if (isset($_GET['userId']) && isset($_GET['AnimalId'])) {
     }
 
     mysqli_close($con);
+} else {
+    echo "Required parameters are missing.";
 }
 ?>

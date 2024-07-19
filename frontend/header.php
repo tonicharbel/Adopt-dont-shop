@@ -53,6 +53,8 @@
               <li><div class="dropdown-item" style="text-align: center;"><?php echo $_SESSION['user_email']; ?></div></li>
               <li><a class="dropdown-item" href="#" aria-readonly></a></li>
               <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="track.php" style="text-align: center;">Track My Adoption Request</a></li>
+        <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="logout.php" style="color: #EA0101; text-align: center;"><i class="bi bi-box-arrow-right" style="margin-right:5px;"></i>Log out</a></li>
               </ul>
               </div>

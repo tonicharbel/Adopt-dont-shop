@@ -80,8 +80,8 @@ if (mysqli_num_rows($result) == 0) {
          
           <td class="btn-options">
             <a href="detailAdoption.php?AdoptId=<?php echo $row['AdoptId']; ?>" class="btn btn-primary">Detail</a>
-            <a href="acceptPet.php?AnimalId=<?php echo $row['AdoptId'];?>" class="btn btn-success">Accept</a>
-            <a href="declinepet.php?AnimalId=<?php echo $row['AdoptId'];?>"  class="btn btn-danger">Decline</a>
+            <a href="acceptAdoption.php?AdoptId=<?php echo $row['AdoptId'];?>" class="btn btn-success">Accept</a>
+            <a href="declineAdoption.php?AdoptId=<?php echo $row['AdoptId'];?>"  class="btn btn-danger">Decline</a>
           </td>
         </tr>
        
