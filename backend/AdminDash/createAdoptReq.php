@@ -11,14 +11,12 @@ if (isset($_GET['userId']) && isset($_GET['AnimalId'])) {
     $userID = mysqli_real_escape_string($con, $_GET['userId']);
     $animalID = mysqli_real_escape_string($con, $_GET['AnimalId']);
     
-    // SQL query to insert a new adoption request
     $query = "INSERT INTO adopts (userid, adoptdate, adoptstatus)
               VALUES ('$userID', NOW(), 'pending')";
     
     if (mysqli_query($con, $query)) {
-        $adoptid = mysqli_insert_id($con); // Get the adoptid of the newly inserted adoption request
+        $adoptid = mysqli_insert_id($con); 
 
-        // SQL query to link the animal to the adoption request
         $query2 = "INSERT INTO adoptanimals (adoptid, animalid)
                    VALUES ('$adoptid', '$animalID')";
 

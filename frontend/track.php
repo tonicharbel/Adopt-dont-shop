@@ -93,6 +93,7 @@ if (!$result) {
             background-color: #d4edda; 
             color: #155724; 
         }
+        
         .status-accepted-badge {
             background-color: #cce5ff; 
             color: #004085; 
