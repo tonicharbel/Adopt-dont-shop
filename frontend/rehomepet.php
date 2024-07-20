@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
         else{
         
                 $insert1 = mysqli_query($con, "INSERT INTO animalslists (AnimalName, AnimalDescription , AnimalImage, AnimalAge, Disease, Gender, Vaccinated, Neutered) VALUES ('$pname' ,'$desc','$image' ,'$age' ,'$disease' ,'$gender' ,'$vaccine' ,'$neut')");
-
+                
                 $target_dir = "images/";
                 $target_file = $target_dir . basename($_FILES["image"]["name"]);
                 $uploadOk = 1;
@@ -49,12 +49,12 @@ if(isset($_POST['submit'])){
                     echo "Sorry, file already exists.";
                     $uploadOk = 0;
                 }
-
-                if ($_FILES["image"]["size"] > 500000) {
+                /*
+                if ($_FILES["image"]["size"]> 500000) {
                     echo "Sorry, your file is too large.";
                     $uploadOk = 0;
                 }
-
+                */
                 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
                     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                     $uploadOk = 0;
@@ -63,21 +63,31 @@ if(isset($_POST['submit'])){
                 if ($uploadOk == 0) {
                     echo "Sorry, your file was not uploaded.";
                 } else {
-                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                        echo "<script>alert('The file ". htmlspecialchars( basename( $_FILES["image"]["name"])). " has been uploaded.');</script>";
+                    if (!move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                        /*echo "<script>alert('The file ". htmlspecialchars( basename( $_FILES["image"]["name"])). " has been uploaded.');</script>";
                         
-                    } else {
+                    } else {*/
                         echo "Sorry, there was an error uploading your file.";
                     }
                 }
 
                 $select2 = mysqli_query($con, "SELECT * FROM categories where CategoryType = '$ptwb'");
 
+                $select3 = mysqli_query($con, "SELECT * FROM `animalslists` WHERE AnimalName = '$pname' And AnimalDescription = '$desc'");
+                $fetch_petinfo_1 = mysqli_fetch_assoc($select3);
+                $animalId1 = $fetch_petinfo_1['AnimalId'];
+
                 if(mysqli_num_rows($select2) == 0){
                     $insert2 = mysqli_query($con, "INSERT INTO categories (CategoryType) VALUES ('$ptwb')");
+                    $categoryId1 = mysqli_insert_id($con);
+                    $insert3 = mysqli_query($con, "INSERT INTO animalscategories (AnimalId,CategoryId) VALUES ('$animalId1','$categoryId1')");
+                }else{
+                    $fetch_category_1 = mysqli_fetch_assoc($select2);
+                    $categoryId2 = $fetch_category_1['CategoryId'];
+                    $insert3 = mysqli_query($con, "INSERT INTO animalscategories (AnimalId,CategoryId) VALUES ('$animalId1','$categoryId2')");
                 }
 
-                echo "<script>alert('Pet successful');</script>";
+                //echo "<script>alert('Pet successful');</script>";
                 header("Location: petList.php");
                 exit();
             }
@@ -192,7 +202,7 @@ mysqli_close($con);
                     <div class="form-group">
                         <label>Neutered</label><br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" name="neut" type="checkbox" id="neutered" value="neutered" required>
+                            <input class="form-check-input" name="neut" type="checkbox" id="neutered" value="neutered">
                             <label class="form-check-label" for="neutered">Yes</label>
                         </div>
                     </div>

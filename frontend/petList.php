@@ -51,8 +51,15 @@ session_start();
         <div class="col-md-3 mb-3">
             <select class="form-control" id="categorySelect" name="category">
                 <option value="">All</option>
-                <option value="Cat">Cat</option>
-                <option value="Dog">Dog</option>
+                <?php
+                $select_option = mysqli_query($con, "SELECT * FROM categories ");
+                
+                while($fetch_option = mysqli_fetch_assoc($select_option)){
+                    ?>
+                    <option value="<?php echo $fetch_option['CategoryType']; ?>"><?php echo $fetch_option['CategoryType']; ?></option>
+                    <?php
+                }
+                ?>
             </select>
         </div>
         <div class="col-md-2 mb-3">

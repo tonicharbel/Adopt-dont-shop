@@ -36,7 +36,7 @@ if (mysqli_num_rows($result) == 0) {
                 ?>
                <div class="col-lg-4 col-md-6 col-sm-12 mb-4"> 
     <div class="card pet-card">
-        <img src="images/<?php echo $row['AnimalImage']; ?>" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="Pet Image">
+        <img src="../../frontend/images/<?php echo $row['AnimalImage']; ?>" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="Pet Image">
         <div class="card-body">
             <h5 class="card-title"><?php echo $row['AnimalName']; ?></h5>
             <p class="card-text"><?php echo $row['AnimalDescription']; ?></p>
