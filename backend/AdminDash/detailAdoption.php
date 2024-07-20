@@ -177,8 +177,8 @@ include("sideBar.php");
        
     </div>
     <br>
-    <a href="acceptPet.php?AnimalId=<?php echo $row['AdoptId'];?>" class="btn btn-success">Accept</a>
-    <a href="declinepet.php?AnimalId=<?php echo $row['AdoptId'];?>"  class="btn btn-danger">Decline</a>
+    <a href="acceptAdoption.php?AdoptId=<?php echo $_GET['AdoptId'];?>" class="btn btn-success">Accept</a>
+    <a href="declineAdoption.php?AdoptId=<?php echo $_GET['AdoptId'];?>"  class="btn btn-danger">Decline</a>
 <br>
 <br>
 <br>

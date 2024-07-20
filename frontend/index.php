@@ -157,7 +157,7 @@ try {
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Adopt Now!</button>
+                            <a href="../backend/AdminDash/createAdoptReq.php?AnimalId=<?php echo $fetch_petinfo['AnimalId']; ?>&userId=<?php echo $_SESSION['user_id']; ?>"><button type="button" class="btn btn-primary">Adopt Now!</button></a>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,4 @@
 <?php
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -11,9 +10,7 @@ if ($_SESSION['isloggedin'] != 1) {
 
 include('../backend/connection.php');
 
-
 $userID = $_SESSION['user_id'];
-
 
 $query = "
     SELECT 
@@ -35,9 +32,7 @@ $query = "
         a.UserId = '$userID'
 ";
 
-
 $result = mysqli_query($con, $query);
-
 
 if (!$result) {
     die("Error retrieving data: " . mysqli_error($con));
@@ -51,6 +46,7 @@ if (!$result) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Track Adoption Requests</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CDN -->
     <style>
         .section {
             margin-bottom: 30px;
@@ -62,6 +58,18 @@ if (!$result) {
             background-color: #00007B;
             color: white;
             font-size: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-header .go-back {
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .card-header .go-back:hover {
+            color: #ddd;
         }
         .table td, .table th {
             padding: 1rem;
@@ -92,12 +100,10 @@ if (!$result) {
             background-color: #d4edda; 
             color: #155724; 
         }
-        
         .status-accepted-badge {
             background-color: #cce5ff; 
             color: #004085; 
         }
-       
         .info-box {
             border: 1px solid #ddd;
             border-radius: 5px;
@@ -133,7 +139,6 @@ if (!$result) {
             padding-bottom: 10px;
         }
     </style>
-    
 </head>
 <body>
 <div class="container mt-5">
@@ -141,6 +146,9 @@ if (!$result) {
         <div class="card">
             <div class="card-header">
                 Track My Adoption Requests
+                <a href="index.php" class="go-back" aria-label="Go Back">
+                    <i class="fas fa-times"></i> <!-- Font Awesome X icon -->
+                </a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -159,7 +167,6 @@ if (!$result) {
                         </thead>
                         <tbody>
                             <?php
-                            
                             while ($row = mysqli_fetch_assoc($result)) {
                                 $statusClass = '';
                                 $statusBadgeClass = '';
@@ -192,6 +199,7 @@ if (!$result) {
         </div>
     </div>
 </div>
+
 <div class="container mt-5">
     <div class="header">
         What Does Adoption Status Mean?
@@ -201,7 +209,7 @@ if (!$result) {
         <h3>Pending Status</h3>
         <p>If the adoption status is "Pending," it indicates that your request has been successfully submitted and is currently under review by our team. We are diligently evaluating your request.</p>
     </div>
-   
+
     <div class="info-box accepted">
         <h3>Accepted Status</h3>
         <p>If your request is "Accepted," congratulations! Your adoption request has been approved. You are welcome to visit us and pick up your new companion.</p>
@@ -209,12 +217,9 @@ if (!$result) {
 
     <div class="info-box declined">
         <h3>Declined Status</h3>
-        <p>If your request Doesn't exists here , we regret to inform you that your request was not successful. This may be due to the pet's unavailability or another party adopting the pet.</p>
+        <p>If your request doesn't exist here, we regret to inform you that your request was not successful. This may be due to the pet's unavailability or another party adopting the pet.</p>
     </div>
-    
 </div>
-        
-
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
@@ -223,6 +228,5 @@ if (!$result) {
 </html>
 
 <?php
-
 mysqli_close($con);
 ?>
