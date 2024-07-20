@@ -3,12 +3,8 @@
 $servername = "localhost"; 
 $username = "root"; 
 $password = ""; 
-$database = "adoptdontbuy"; 
+$database = "adoptdontshop"; 
 
-// $servername = "Localhost"; 
-// $username = "root"; 
-// $password = ""; 
-// $database = "adoptdontshop"; 
 
 try{
   $con = new mysqli($servername, $username, $password, $database);
