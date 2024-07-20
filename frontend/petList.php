@@ -47,6 +47,7 @@ session_start();
         <div class="col-md-4 mb-2">
             <input type="text" class="form-control" id="searchInput" name="searchName" placeholder="Search by name...">
         </div>
+        
         <div class="col-md-3 mb-3">
             <select class="form-control" id="categorySelect" name="category">
                 <option value="">All</option>
@@ -128,7 +129,7 @@ session_start();
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $fetch_petinfo['AnimalName']; ?></h5>
                             <p class="card-text"><?php // echo $fetch_petinfo['AnimalDescription']; ?></p>
-                            <a href="#" class="btn btn-primary btn-center adopt-btn" data-bs-toggle="modal" data-bs-target="#petModal<?php echo $fetch_petinfo['AnimalId']; ?>">Adopt Me</a>
+                            <a href="../backend/AdminDash/createAdoptReq.php?AnimalId=<?php echo $fetch_petinfo['AnimalId']; ?>&userId=<?php echo $_SESSION['user_id']; ?>" class="btn btn-primary btn-center adopt-btn" data-bs-toggle="modal" data-bs-target="#petModal<?php echo $fetch_petinfo['AnimalId']; ?>">Adopt Me</a>
                         </div>
                     </div>
                 </div>
@@ -178,7 +179,9 @@ try {
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Adopt Now!</button>
+                            
+                            <a href="../backend/AdminDash/createAdoptReq.php?AnimalId=<?php echo $fetch_petinfo['AnimalId']; ?>&userId=<?php echo $_SESSION['user_id']; ?>" class="btn btn-primary">Adopt Now!</a>
+
                         </div>
                     </div>
                 </div>

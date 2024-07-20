@@ -80,7 +80,7 @@ div.content {
 <body>
 
 <?php
-// Get the current file name
+
 $current_file = basename($_SERVER['PHP_SELF']);
 ?>
 
@@ -100,6 +100,7 @@ $current_file = basename($_SERVER['PHP_SELF']);
   <a class="<?= $current_file == 'requestpet.php' ? 'active' : '' ?>" href="requestpet.php">Pets Request List</a>
   <a class="<?= $current_file == 'adoptionrequest.php' ? 'active' : '' ?>" href="adoptionrequest.php">Adoptions Pets Request </a>
   <a class="<?= $current_file == 'about.php' ? 'active' : '' ?>" href="about.php">About</a>
+  <a class="<?= $current_file == 'logout.php' ? 'active' : '' ?>" href="../../frontend/logout.php">Log Out</a>
 </div>
 
 <div class="content">

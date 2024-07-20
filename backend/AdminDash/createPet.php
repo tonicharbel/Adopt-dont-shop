@@ -12,21 +12,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 print_r($_POST);
 echo "</pre>";
 
-    // Check if all required fields are set and not empty
+    
     if (!isset($_POST['petName']) || !isset($_POST['petDescription']) || !isset($_POST['petAge'])) {
         echo "Missing required fields.";
         exit();
     }
 
-    // Escape and sanitize inputs
+   
     $petName = mysqli_real_escape_string($con, $_POST['petName']);
     $petDescription = mysqli_real_escape_string($con, $_POST['petDescription']);
     $petAge = mysqli_real_escape_string($con, $_POST['petAge']);
     $disease = mysqli_real_escape_string($con, $_POST['disease']);
     $gender = mysqli_real_escape_string($con, $_POST['gender']);
-    $vaccinated = isset($_POST['vaccine']) ? 1 : 0; // Assuming 'vaccine' is a checkbox or radio button
+    $vaccinated = isset($_POST['vaccine']) ? 1 : 0; 
 
-    // Handle file upload
     if (isset($_FILES['images']) && $_FILES['images']['error'] == 0) {
         $imageTmpPath = $_FILES['images']['tmp_name'];
         $imageData = addslashes(file_get_contents($imageTmpPath)); 
@@ -34,7 +33,6 @@ echo "</pre>";
         $imageData = null; 
     }
   
-    // Prepare and execute SQL query
     $query = "INSERT INTO animalslists (AnimalName, AnimalDescription, AnimalImage, AnimalAge, Disease, Gender, Vaccinated)
               VALUES ('$petName', '$petDescription', '$imageData', '$petAge', '$disease', '$gender', '$vaccinated')";
     
