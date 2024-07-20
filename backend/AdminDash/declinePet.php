@@ -6,7 +6,10 @@ if (isset($_GET['AnimalId'])) {
 
 
 include('../connection.php');
-   
+
+    $sql0 = "DELETE FROM  animalscategories WHERE AnimalId = $animalId";
+    $res = mysqli_query($con,$sql0);
+
     $sql = "DELETE FROM animalslists WHERE AnimalId = $animalId";
 
     if ($con->query($sql) === TRUE) {
