@@ -80,7 +80,7 @@ div.content {
 <body>
 
 <?php
-// Get the current file name
+
 $current_file = basename($_SERVER['PHP_SELF']);
 ?>
 

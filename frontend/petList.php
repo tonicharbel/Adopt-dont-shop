@@ -47,6 +47,7 @@ session_start();
         <div class="col-md-4 mb-2">
             <input type="text" class="form-control" id="searchInput" name="searchName" placeholder="Search by name...">
         </div>
+        
         <div class="col-md-3 mb-3">
             <select class="form-control" id="categorySelect" name="category">
                 <option value="">All</option>
