@@ -1,4 +1,4 @@
-<div class="container-fluid custom-bg-color">
+<div class="container-fluid custom-bg-color"> 
   <footer class="py-5">
     <div class="row">
 

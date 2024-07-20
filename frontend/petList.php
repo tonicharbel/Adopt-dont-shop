@@ -54,7 +54,6 @@ session_start();
                 <option value="Cat">Cat</option>
                 <option value="Dog">Dog</option>
             </select>
-            
         </div>
         <div class="col-md-2 mb-3">
             <input type="number" class="form-control" id="minAgeInput" name="minAge" placeholder="Min Age">
@@ -78,7 +77,7 @@ session_start();
         $minAge = $_POST['minAge'];
         $maxAge = $_POST['maxAge'];
 
-
+        
         if(isset($searchName) && !empty($searchName) || isset($category) && !empty($category) || isset($minAge) && !empty($minAge) || isset($maxAge) && !empty($maxAge)){
 
             $query = "SELECT * FROM animalslists, animalscategories, categories 

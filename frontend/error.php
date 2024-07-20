@@ -38,7 +38,7 @@ session_start();
                 </button>
             </div>
           </div>
-    </section>
+    </section> 
 
     <!-- Footer -->
     <?php include("footer.php");?>

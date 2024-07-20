@@ -1,13 +1,12 @@
 <?php
-session_start();
+  session_start();
 
-// Unset all session variables
-$_SESSION = array();
+  // Unset all session variables.
+  $_SESSION = array();
 
-// Destroy the session
-session_destroy();
+  // Destroy the session.
+  session_destroy();
 
-
-header("Location: index.php");
-exit();
+  header("Location: index.php");
+  exit();
 ?>

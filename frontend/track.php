@@ -1,6 +1,5 @@
 <?php
 
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -214,8 +213,7 @@ if (!$result) {
     </div>
     
 </div>
-
-
+        
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

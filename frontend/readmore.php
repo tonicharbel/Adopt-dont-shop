@@ -20,7 +20,7 @@ session_start();
 <body>
 
     <!-- Navbar -->
-      <?php include("header.php"); ?>
+    <?php include("header.php"); ?>
     
     
     <video autoplay muted loop id="myVideo">

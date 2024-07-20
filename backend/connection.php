@@ -1,9 +1,9 @@
 <?php
 
-$servername = "localhost"; 
-$username = "root"; 
+$servername = "localhost";  
+$username = "root";  
 $password = ""; 
-$database = "adoptdontshop"; 
+$database = "adoptdontshop";  
 
 
 try{

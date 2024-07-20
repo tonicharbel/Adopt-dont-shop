@@ -61,8 +61,8 @@ session_start();
                 </div>
             </div>
             <div class="social-media">
-                <a href="#"><i class="fa fa-facebook-f"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-facebook-f"></i></a> 
+                <a href="#"><i class="fa fa-instagram"></i></a> 
             </div>
         </div>
     </div>
@@ -84,7 +84,7 @@ function showSlides() {
     if (slideIndex > slides.length) {
         slideIndex = 1;
     }
-    slides[slideIndex - 1].style.display = "block";
+    slides[slideIndex - 1].style.display = "block"; 
     slides[slideIndex - 1].style.transition = "opacity 1s"; // Add a smooth opacity transition
     slides[slideIndex - 1].style.opacity = 1; // Show the active image
     setTimeout(showSlides, 4000); // Change image every 4 seconds

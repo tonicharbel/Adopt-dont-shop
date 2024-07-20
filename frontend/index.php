@@ -59,40 +59,40 @@ if(isset($_SESSION['user_id'])) {
     
 
 
-    <div class="adopt-rehome-section">
-    <div class="container">
-        <h2>Adopt or Rehome a Pet</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="adoption-option">
-                    <i class="fa fa-paw fa-4x"></i>
-                    <h3>Adopt a Pet</h3>
-                    <p>Find your new furry friend and give them a loving home.</p>
-                    <a href="petlist.php" class="btn btn-primary">Adopt Now</a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="adoption-option">
-                    <i class="fa fa-home fa-4x"></i>
-                    <h3>Rehome Your Pet</h3>
-                    <p>If circumstances change, we can help find a new home for your pet.</p>
-                    <a href="rehomepet.php" class="btn btn-primary">Rehome Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-<div class="pets-section">
-    <div class="container">
-      <h2>Pets Ready for Adoption</h2>
-      <div class="row">
+<div class="adopt-rehome-section"> 
+    <div class="container"> 
+        <h2>Adopt or Rehome a Pet</h2>  
+        <div class="row">  
+            <div class="col-md-6"> 
+                <div class="adoption-option"> 
+                    <i class="fa fa-paw fa-4x"></i> 
+                    <h3>Adopt a Pet</h3> 
+                    <p>Find your new furry friend and give them a loving home.</p> 
+                    <a href="petlist.php" class="btn btn-primary">Adopt Now</a> 
+                </div> 
+            </div> 
+            <div class="col-md-6"> 
+                <div class="adoption-option"> 
+                    <i class="fa fa-home fa-4x"></i> 
+                    <h3>Rehome Your Pet</h3> 
+                    <p>If circumstances change, we can help find a new home for your pet.</p> 
+                    <a href="rehomepet.php" class="btn btn-primary">Rehome Now</a> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+</div> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<div class="pets-section"> 
+    <div class="container"> 
+      <h2>Pets Ready for Adoption</h2> 
+      <div class="row"> 
     <?php
     try {
         $select_petinfo = mysqli_query($con, "SELECT * FROM `animalslists`");
@@ -109,8 +109,8 @@ if(isset($_SESSION['user_id'])) {
                             <p class="card-text"><?php //echo $fetch_petinfo['AnimalDescription']; ?></p>
                             <a href="#" class="btn btn-primary btn-center adopt-btn" data-bs-toggle="modal" data-bs-target="#petModal<?php echo $fetch_petinfo['AnimalId']; ?>">Adopt Me</a>
                         </div>
-                    </div>
-                </div>
+                    </div> 
+                </div> 
                 <?php
             } else {
                 break;
